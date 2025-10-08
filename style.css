@@ -1,0 +1,112 @@
+body{
+	margin: 0;
+	padding: 0;
+	background: #312e2e;
+}
+
+header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 80px;
+	background-color: #312e2e;
+	padding: 0 300px;
+}
+nav{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+}
+nav a{
+	color: white;
+	text-decoration: none;
+	padding: 15 25px;
+	border-radius: 8px;
+	transition: all 0.4s ease;
+	position: relative;
+	border-radius: 2px solid transparent;
+	background: transparent;
+	font-weight: 500;
+}
+/*effet au survol*/
+nav a:hover{
+ border-radius: 2px solid transparent;
+ background: transparent;
+ transform: translateY(-3px);
+ box-shadow: 0 6px 20px rgba(255, 140, 0, 0.3);
+
+ /* degrade sur le texte*/
+ background: linear-gradient(135deg, #ff3c00,  #fa7f20, #ff4400);
+ -webkit-background-clip:text;
+ background-clip: text;
+ -webkit-text-fill-color:transparent;
+ background-size: 200% 200%;
+ animation: textGradient 2s ease infinite;
+
+ /*dégradé sur le cadre*/
+border-image: linear-gradient(135deg, #ffb347, #ffcc33, #ff8c00) 1;
+border-image-slice: 1;
+}
+
+div{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 200px;
+}  
+
+div h1{
+	margin: 0;
+	font-size: 70px;
+}
+.container{
+	position: relative;
+	/*top: 20px;*/
+	width: 200%;
+	max-width: 800px;
+	height: 500px;
+	margin: 50px auto;
+	border-radius: 20px;
+}
+.bg-img{
+	object-fit: cover;
+	transform: rotate(-15deg) scale(1.2);
+	position: absolute;
+	width: 500px;
+	/*height: 300px;*/
+	/*top: -10px;*/
+	left: 20p;
+    border-radius: 10px;
+    margin: 0px auto;
+    top: 300px;
+    margin-left: -250px;
+    margin-top: 70px;
+
+}
+.text{
+    font-family: ;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	background: linear-gradient(135deg, #ff3c00,  #fa7f20, #ff4400);
+ -webkit-background-clip:text;
+ background-clip: text;
+ -webkit-text-fill-color:transparent;
+ background-size: 200% 200%;
+	/*text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+	z-index: 2;*/
+}  
+.sous-titre{
+	margin-top: 250px;
+
+}
+.pa{
+	margin-top: 100px ;
+}
+input{
+	margin-top: 100px;
+}
