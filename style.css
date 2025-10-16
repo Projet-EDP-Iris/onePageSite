@@ -86,6 +86,7 @@ div h1{
 	height: 500px;
 	margin: 50px auto;
 	border-radius: 20px;
+
 }
 .bg-img{
 	object-fit: cover;
@@ -100,6 +101,7 @@ div h1{
     top: 150px;
     margin-left: 150px;
     margin-top: 50px;
+
 
 }
 .text{
@@ -198,51 +200,26 @@ input{
 
 }
 
-.Trust{
-width: 586.5px;
-height: 120px;
-top: 59.5px;
-/*left: 298.75px;*/
-angle: 0 deg;
-opacity: 1;
+.trust{
+margin-top: 300px;
 
-font-family: Inter;
-font-weight: 800px;
-font-style: Medium;
-font-size: 50.05px;
-leading-trim: NONE;
-line-height: 60px;
-letter-spacing: 0px;
-text-align: center;
-vertical-align: middle;
-
-
-background: linear-gradient(90deg, #F89A3C 0%, #FF3D00 100%);
--webkit-background-clip:text;
- background-clip: text;
- -webkit-text-fill-color:transparent;
- background-size: 200% 200%;
 
 }
-
-.Trust span{
-	font-family: Instrument Serif;
-font-weight: 400px;
-font-style: Italic;
-font-size: 54px;
-leading-trim: NONE;
-line-height: 60px;
-letter-spacing: 0px;
-text-align: center;
-vertical-align: middle;
-
+.divi{
+	position: absolute;
+	left: 70px;
+	margin-top: 300px;
 }
-/*.im{
-	width: 576px;
-height: 152px;
-top: 176.91px;
-left: 304px;
-angle: 0 deg;
-opacity: 1;*/
-
+.li{
+	position: absolute;
+	left: 30px;
+	margin-top: 1000px;
+}
+.lin{
+	position: absolute;
+	left: 400px;
+	margin-top: 1000px;
+}
+.app{
+	margin-top: 800px;
 }
