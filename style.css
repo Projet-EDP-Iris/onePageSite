@@ -20,10 +20,24 @@ nav{
 	margin: 0 auto;
 }
 nav a{
+
+
+
+width: 92;
+height: 43;
+angle: 0 deg;
+opacity: 1;
+border-radius: 12px;
+border-width: 1px;
+padding: 15px;
+
+
+
+
 	color: white;
 	text-decoration: none;
 	padding: 15 25px;
-	border-radius: 8px;
+	/*border-radius: 8px;*/
 	transition: all 0.4s ease;
 	position: relative;
 	border-radius: 2px solid transparent;
@@ -32,12 +46,15 @@ nav a{
 }
 /*effet au survol*/
 nav a:hover{
- border-radius: 2px solid transparent;
+ border-radius: 10px solid transparent;
  background: transparent;
  transform: translateY(-3px);
  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.3);
 
  /* degrade sur le texte*/
+
+border: 1px solid;
+
  background: linear-gradient(135deg, #ff3c00,  #fa7f20, #ff4400);
  -webkit-background-clip:text;
  background-clip: text;
@@ -46,7 +63,7 @@ nav a:hover{
  animation: textGradient 2s ease infinite;
 
  /*dégradé sur le cadre*/
-border-image: linear-gradient(135deg, #ffb347, #ffcc33, #ff8c00) 1;
+ border-image-source: linear-gradient(180deg, #F89A3C 0%, #FF3D00 100%);
 border-image-slice: 1;
 }
 
@@ -59,7 +76,7 @@ div{
 
 div h1{
 	margin: 0;
-	font-size: 70px;
+	font-size: 50px;
 }
 .container{
 	position: relative;
@@ -72,41 +89,160 @@ div h1{
 }
 .bg-img{
 	object-fit: cover;
-	transform: rotate(-15deg) scale(1.2);
+	/*transform: rotate(-15deg) scale(1.2);*/
 	position: absolute;
-	width: 500px;
+	width: 750px;
 	/*height: 300px;*/
 	/*top: -10px;*/
-	left: 20p;
+	left: 0px;
     border-radius: 10px;
     margin: 0px auto;
-    top: 300px;
-    margin-left: -250px;
-    margin-top: 70px;
+    top: 150px;
+    margin-left: 150px;
+    margin-top: 50px;
 
 }
 .text{
+font-family: Inter;
+font-weight: 500;
+font-style: Medium;
+font-size: 73.9px;
+leading-trim: NONE;
+line-height: 68px;
+letter-spacing: 0px;
+vertical-align: middle;
+
+
+
+
     font-family: ;
 	position: absolute;
-	top: 50%;
+	top: 30%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	text-align: center;
-	background: linear-gradient(135deg, #ff3c00,  #fa7f20, #ff4400);
+	background: linear-gradient(90deg, #F89A3C 0%, #FF3D00 100%);
  -webkit-background-clip:text;
  background-clip: text;
  -webkit-text-fill-color:transparent;
  background-size: 200% 200%;
-	/*text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-	z-index: 2;*/
+	
 }  
-.sous-titre{
-	margin-top: 250px;
+.sous-titre P{
+	
+	position: absolute;
+	top: 50%;
+	left: 49%;
+	bottom: 30%;
+	transform: translate(-50%, -50%) ;
+	text-align: center;
+
+font-family: Inter;
+font-weight: 400;
+font-style: Regular;
+font-size: 19.5px;
+leading-trim: NONE;
+line-height: 28px;
+letter-spacing: 0px;
+vertical-align: middle;
 
 }
+.sous-titre input{
+width: 146.60000610351562px;
+height: 50px;
+angle: 0 deg;
+opacity: 1;
+border-radius: 10px;
+border-width: 1px;
+background: linear-gradient(353deg, #FF3D00 17.51%, #A05533 100%);
+
+font-family: Inter;
+font-weight: 500;
+font-style: Medium;
+font-size: 14.9px;
+leading-trim: NONE;
+line-height: 24px;
+letter-spacing: 0px;
+vertical-align: middle;
+color: #FFFFFF;
+
+
+
+}
+
 .pa{
 	margin-top: 100px ;
+	color: #404040;
+}
+.pa a{
+	color: gray;
 }
 input{
 	margin-top: 100px;
+}
+.logo{
+	/*width: 100px;*/
+	height: 100px;
+	position: absolute;
+	left: 0px;
+    margin: 0px auto;
+    top: 80px;
+    margin-left: 475px;
+    margin-top: 5px;
+	  
+
+}
+
+.start{
+	color: white;
+
+}
+
+.Trust{
+width: 586.5px;
+height: 120px;
+top: 59.5px;
+/*left: 298.75px;*/
+angle: 0 deg;
+opacity: 1;
+
+font-family: Inter;
+font-weight: 800px;
+font-style: Medium;
+font-size: 50.05px;
+leading-trim: NONE;
+line-height: 60px;
+letter-spacing: 0px;
+text-align: center;
+vertical-align: middle;
+
+
+background: linear-gradient(90deg, #F89A3C 0%, #FF3D00 100%);
+-webkit-background-clip:text;
+ background-clip: text;
+ -webkit-text-fill-color:transparent;
+ background-size: 200% 200%;
+
+}
+
+.Trust span{
+	font-family: Instrument Serif;
+font-weight: 400px;
+font-style: Italic;
+font-size: 54px;
+leading-trim: NONE;
+line-height: 60px;
+letter-spacing: 0px;
+text-align: center;
+vertical-align: middle;
+
+}
+/*.im{
+	width: 576px;
+height: 152px;
+top: 176.91px;
+left: 304px;
+angle: 0 deg;
+opacity: 1;*/
+
 }
