@@ -199,9 +199,13 @@ input{
 	color: white;
 
 }
-
+.true{
+	position: relative;
+	top: 160px;
+}
 .trust{
-margin-top: 300px;
+position: relative;
+top: 950px;
 
 
 }
@@ -221,5 +225,8 @@ margin-top: 300px;
 	margin-top: 1000px;
 }
 .app{
-	margin-top: 800px;
+	margin-top: 900px;
+	color: white;
+	font-size: 40px;
+
 }
