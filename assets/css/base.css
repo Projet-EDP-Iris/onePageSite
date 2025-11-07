@@ -1,0 +1,16 @@
+/* Reset and base styles */
+body {
+    margin: 0;
+    padding: 0;
+    background: #312e2e;
+}
+
+/* Typography */
+body {
+    font-family: Inter, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}

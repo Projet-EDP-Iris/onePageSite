@@ -1,0 +1,20 @@
+/* Animation styles */
+@keyframes textGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+nav a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 140, 0, 0.3);
+    border: 1px solid;
+    background: linear-gradient(135deg, #ff3c00, #fa7f20, #ff4400);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: textGradient 2s ease infinite;
+    border-image-source: linear-gradient(180deg, #F89A3C 0%, #FF3D00 100%);
+    border-image-slice: 1;
+}
