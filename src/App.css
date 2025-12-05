@@ -14,6 +14,7 @@
 	height: 80px;
 	background-color: #312e2e;
 	padding: 0 300px;
+  margin-top:-40px;
 }
 .navi {
   display: flex;
@@ -48,6 +49,16 @@ background: linear-gradient(90deg, #F89A3C 0%, #FF3D00 100%);
  top: 30%;
 	left: 50%;
   text-align: center;
+}
+
+.logo{
+  width: 100px;
+  height: 100px;
+}
+.logo-bg{
+top: 50px;
+position: absolute;
+left: 500px;
 }
 
 .subtext{
@@ -115,7 +126,7 @@ color: #FFFFFF;
 	left: -40px;
     border-radius: 10px;
     margin: 0px auto;
-    top: -10px;
+    top: -5px;
     margin-left: 150px;
     margin-top: 50px;
    
@@ -233,6 +244,7 @@ color: #FFFFFF;
       cursor: pointer;
     }
 .carousel-container {
+        top: -50px;
         width: 100vw;
         height: 100vh;
         overflow: hidden;
@@ -241,13 +253,13 @@ color: #FFFFFF;
 
     .carousel-track {
         display: flex;
-        width: calc(200vw);
+        width: 400px;
         height: 100%;
         animation: scrollX 12s linear infinite;
     }
 
     .carousel-slide {
-        width: 100vw;
+        width: 400px;
         height: 100%;
         display: flex;
         justify-content: center;
@@ -255,18 +267,779 @@ color: #FFFFFF;
     }
 
     .carousel-slide img {
-        width: 90%;
-        height: auto;
+        width: 300px;
+        height: 300px;
+        margin-right: 40px;
         border-radius: 25px;
         object-fit: contain;
         box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
     }
+   
 
     @keyframes scrollX {
         0% { transform: translateX(0); }
-        50% { transform: translateX(-100vw); }
+        50% { transform: translateX(150vw,-150vw); }
         100% { transform: translateX(0); }
     }
 
+    .allmajor h1{
+       width: 100%;
+      padding: 120px 0;
+      color: white;
+      text-align: center;
+      position: relative;
+      top: -150px;
+    }
 
- 
+.frt{
+  width: 100px;
+  height: 100px;
+}
+
+.container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .pricing-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .pricing-card {
+            background-color: #9d7e5a;
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            margin-bottom: 24px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2d2416;
+            margin-bottom: 8px;
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: #3d301f;
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .trusted-by {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #3d301f;
+        }
+
+        .pricing-section {
+            margin-bottom: 24px;
+        }
+
+        .price-wrapper {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .price {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1a1410;
+        }
+
+        .period {
+            font-size: 14px;
+            color: #3d301f;
+        }
+
+        .price-details {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .original-price {
+            font-size: 14px;
+            color: #3d301f;
+            text-decoration: line-through;
+            opacity: 0.75;
+        }
+
+        .savings {
+            font-size: 14px;
+            color: #166534;
+        }
+
+        .revenue-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #3d301f;
+        }
+
+        .cta-button {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-primary {
+            background-color: #e86c3a;
+            color: white;
+        }
+
+        .cta-primary:hover {
+            background-color: #d4612f;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-secondary {
+            background-color: #2d2416;
+            color: white;
+        }
+
+        .cta-secondary:hover {
+            background-color: #1a1410;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .guarantee {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #3d301f;
+            margin-bottom: 24px;
+        }
+
+        .features-section {
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .features-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2d2416;
+            margin-bottom: 12px;
+        }
+
+        .features-list {
+            list-style: none;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 14px;
+            color: #3d301f;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .check-icon {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            opacity: 0.8;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            padding-top: 16px;
+            border-top: 1px solid #8b6f4d;
+            text-align: center;
+            font-size: 12px;
+            color: #3d301f;
+            opacity: 0.8;
+        }
+
+        .emoji {
+            font-size: 16px;
+        }
+
+        .container {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+/* About Us Title*/ 
+.main-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 48px;
+}
+
+/* Cards Grid */
+.cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 80px;
+}
+
+@media (min-width: 768px) {
+    .cards-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.card {
+    border: 1px solid #666;
+    border-radius: 12px;
+    padding: 24px;
+   /* position: relative;*/
+}
+
+.icon-group {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.icon-box {
+    width: 32px;
+    height: 32px;
+    background-color: #c17a3f;
+    border-radius: 4px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+}
+
+.card-description {
+    color: #999;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.contact-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background-color: #c17a3f;
+    color: white;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.contact-btn:hover {
+    background-color: #d08a50;
+}
+
+ /*FAQ Section */
+.faq-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.faq-title {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.highlight {
+    color: #c17a3f;
+    font-style: italic;
+}
+
+.faq-subtitle {
+    color: #999;
+    font-size: 0.875rem;
+}
+
+/* Accordion */
+.accordion {
+    max-width: 672px;
+    margin: 0 auto 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.accordion-item {
+    width: 100%;
+    background-color: #c17a3f;
+    border: none;
+    border-radius: 12px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.accordion-item:hover {
+    background-color: #d08a50;
+}
+
+.accordion-item span {
+    text-align: left;
+}
+
+.chevron {
+    flex-shrink: 0;
+    transition: transform 0.3s;
+}
+
+.accordion-item.active .chevron {
+    transform: rotate(180deg);
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 32px;
+    border-top: 1px solid #555;
+    gap: 16px;
+}
+
+@media (min-width: 768px) {
+    .footer {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.footer-text {
+    color: #777;
+    font-size: 0.875rem;
+    max-width: 500px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 24px;
+}
+
+.footer-link {
+    color: #777;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-link:hover {
+    color: #999;
+}
+
+.container {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            color: white;
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 80px;
+            letter-spacing: -0.5px;
+        }
+
+        .icons-section {
+            margin-bottom: 100px;
+        }
+
+        .icons-wrapper {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        /* Glow effect - adjusted to match the image more closely */
+        .glow-effect {
+            position: absolute;
+            width: 600px;
+            height: 300px;
+            background: radial-gradient(ellipse at center, rgba(255, 120, 0, 0.5) 0%, rgba(255, 100, 0, 0.35) 25%, rgba(200, 80, 0, 0.15) 50%, transparent 70%);
+            filter: blur(80px);
+            z-index: 1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .icons-container {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        /* Gmail Icon - improved M shape */
+        .gmail-icon {
+            width:100px;
+            height: 100px;
+            position: relative;
+        }
+
+        .gmail-m {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .gmail-m::before,
+        .gmail-m::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+        }
+
+        /* Left part of M - red */
+        .gmail-m::before {
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 16px solid #EA4335;
+            border-bottom: 32px solid #EA4335;
+            border-right: 16px solid transparent;
+        }
+
+        /* Right part of M - yellow/orange */
+        .gmail-m::after {
+            right: 0;
+            width: 0;
+            height: 0;
+            border-right: 16px solid #FBBC04;
+            border-bottom: 32px solid #FBBC04;
+            border-left: 16px solid transparent;
+        }
+
+        .gmail-center {
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            border-left: 16px solid transparent;
+            border-right: 16px solid transparent;
+            border-bottom: 48px solid #34A853;
+        }
+
+        .gmail-blue-accent {
+            position: absolute;
+            top: 0;
+            right: 16px;
+            width: 0;
+            height: 0;
+            border-right: 16px solid #4285F4;
+            border-top: 16px solid #4285F4;
+            border-left: 16px solid transparent;
+        }
+
+        /* Google Calendar Icon */
+        .google-calendar {
+            width: 70px;
+            height: 70px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calendar-header {
+            height: 28px;
+            background: linear-gradient(90deg, #4285F4 0%, #5B9DF5 100%);
+            border-radius: 20px 20px 0 0;
+            position: relative;
+        }
+
+        .calendar-rings {
+            position: absolute;
+            top: -8px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-around;
+            padding: 0 20px;
+        }
+
+        .calendar-ring {
+            width: 8px;
+            height: 16px;
+            border: 2px solid #1967D2;
+            border-bottom: none;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .calendar-date-number {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -35%);
+            font-size: 72px;
+            font-weight: 400;
+            color: #202124;
+            line-height: 1;
+        }
+
+        .calendar-bottom-section {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            right: 12px;
+        }
+
+        .calendar-color-bars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 4px;
+        }
+
+        .color-bar {
+            height: 3px;
+            flex: 1;
+            border-radius: 2px;
+        }
+
+        .bar-blue { background-color: #4285F4; }
+        .bar-red { background-color: #EA4335; }
+        .bar-yellow { background-color: #FBBC04; }
+        .bar-green { background-color: #34A853; }
+
+        /* iOS Calendar Icon */
+        .ios-calendar {
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            border-radius: 18px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ios-calendar-header {
+            height: 18px;
+            background: linear-gradient(180deg, #FF3B30 0%, #FF2D20 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ios-calendar-month {
+            font-size: 9px;
+            color: white;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .ios-calendar-date {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -15%);
+            font-size: 44px;
+            font-weight: 400;
+            color: #000;
+            line-height: 1;
+        }
+
+        /* Slack Icon */
+        .slack-icon {
+            width: 14px;
+            height: 14px;
+            position: relative;
+        }
+
+        .slack-shape {
+            position: absolute;
+            border-radius: 8px;
+        }
+
+        /* Cyan shapes */
+        .slack-left {
+            width: 16px;
+            height: 32px;
+            background-color: #36C5F0;
+            top: 16px;
+            left: 0;
+        }
+
+        .slack-top-left-dot {
+            width: 16px;
+            height: 16px;
+            background-color: #36C5F0;
+            top: 0;
+            left: 0;
+        }
+
+        /* Yellow shapes */
+        .slack-top {
+            width: 32px;
+            height: 16px;
+            background-color: #ECB22E;
+            top: 0;
+            left: 16px;
+        }
+
+        .slack-top-right-dot {
+            width: 16px;
+            height: 16px;
+            background-color: #ECB22E;
+            top: 0;
+            right: 0;
+        }
+
+        /* Red/Pink shapes */
+        .slack-right {
+            width: 16px;
+            height: 32px;
+            background-color: #E01E5A;
+            top: 16px;
+            right: 0;
+        }
+
+        .slack-bottom-right-dot {
+            width: 16px;
+            height: 16px;
+            background-color: #E01E5A;
+            bottom: 0;
+            right: 0;
+        }
+
+        /* Green shapes */
+        .slack-bottom {
+            width: 32px;
+            height: 16px;
+            background-color: #2EB67D;
+            bottom: 0;
+            left: 16px;
+        }
+
+        .slack-bottom-left-dot {
+            width: 16px;
+            height: 16px;
+            background-color: #2EB67D;
+            bottom: 0;
+            left: 0;
+        }
+
+        /* Download Button */
+        .download-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(90deg, #FF8C42 0%, #FF6B35 100%);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(255, 107, 53, 0.4);
+        }
+
+        .download-button:active {
+            transform: translateY(0);
+        }
+
+        .arrow-icon {
+            font-size: 18px;
+            font-weight: bold;
+        }
+          .icons-section {
+                position: absolute;
+                top: 180px;
+                left: 300px;
+            }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+                margin-bottom: 60px;
+            }
+
+            .icons-container {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .google-calendar {
+                width: 100px;
+                height: 100px;
+            }
+
+            .calendar-date-number {
+                font-size: 60px;
+            }
+
+            .ios-calendar {
+                width: 70px;
+                height: 70px;
+            }
+
+            .ios-calendar-date {
+                font-size: 38px;
+            }
+
+            .icons-section {
+                margin-bottom: 80px;
+            }
+          }
+
+          .vido{
+            position: absolute;
+            left: 190px;
+          }

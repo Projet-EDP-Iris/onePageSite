@@ -41,9 +41,11 @@ a:hover {
 
 body {
   margin: 0;
+  padding: 0;
   display: flex;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -55,7 +57,7 @@ h1 {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: white;
     background-color: #312e2e;
   }
   a:hover {
