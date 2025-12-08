@@ -149,7 +149,7 @@ function App() {
         <div className="cursor-glow"></div>
 
         <div className="hero-background">
-          <img src="public/image/ir.png" className="bg-img" alt="Iris background"></img>
+          <img src="/image/ir.png" className="bg-img" alt="Iris background"></img>
           <div className="hero-overlay"></div>
         </div>
 
@@ -195,8 +195,8 @@ function App() {
     </h2>
 
     <div class="logos">
-      <img src="public/image/frame.png"  />
-      <img src="public/image/frame (1).png"  />
+      <img src="/image/Frame.png"  />
+      <img src="/image/Frame (1).png"  />
     </div>
 
   </section>
@@ -210,16 +210,16 @@ function App() {
         <div className="carousel-wrapper">
             <div className="carousel-track">
                 <div className="carousel-item">
-                    <img src='public/image/gmail - Edited 1.png' alt="Gmail" />
+                    <img src='/image/gmail - Edited 1.png' alt="Gmail" />
                 </div>
                 <div className="carousel-item">
-                    <img src='public/image/googleCalendar - Edited 1.png' alt="Google Calendar" />
+                    <img src='/image/googleCalendar - Edited 1.png' alt="Google Calendar" />
                 </div>
                 <div className="carousel-item">
-                    <img src='public/image/calendar - Edited 1.png' alt="Calendar" />
+                    <img src='/image/calendar - Edited 1.png' alt="Calendar" />
                 </div>
                 <div className="carousel-item">
-                    <img src='public/image/Slack (icon — Colour).png' alt="Slack" />
+                    <img src='/image/Slack (icon — Colour).png' alt="Slack" />
                 </div>
             </div>
         </div>
