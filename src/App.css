@@ -1,7 +1,7 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
   --accent1:#ff6b1a;
   --accent2:#ff8a2b;
   --accent3:#fbb03b;
@@ -32,6 +32,49 @@
   gap: 40px;
   width: 100%;
   max-width: 800px;
+}
+
+@media (max-width: 768px) {
+  .head {
+    padding: 0 20px;
+    height: 60px;
+  }
+
+  .navi {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navi a {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+
+  .navi a.download-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .head {
+    padding: 0 15px;
+  }
+
+  .navi {
+    gap: 8px;
+  }
+
+  .navi a {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .navi a.download-btn {
+    padding: 7px 14px;
+    font-size: 12px;
+  }
 }
 
 .navi a {
@@ -78,6 +121,7 @@
   padding: 20px;
   padding-top: 100px;
   overflow: hidden;
+  width: 100%;
 }
 
 /* Cursor glow effect */
@@ -328,10 +372,49 @@
       justify-content: center;
       gap: 60px;
       margin-top: 70px;
+      flex-wrap: wrap;
     }
 
     .logos img {
       height: 90px;
+    }
+
+    @media (max-width: 768px) {
+      .trusted-section {
+        padding: 80px 20px;
+      }
+
+      .title {
+        font-size: 40px;
+      }
+
+      .logos {
+        gap: 40px;
+        margin-top: 50px;
+      }
+
+      .logos img {
+        height: 70px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .trusted-section {
+        padding: 60px 15px;
+      }
+
+      .title {
+        font-size: 32px;
+      }
+
+      .logos {
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .logos img {
+        height: 60px;
+      }
     }
 
 /* YouTube Video Tutorial Section */
@@ -454,7 +537,7 @@
     }
 /* Carousel Styles */
 .allmajor {
-  padding: 100px 0;
+  padding: 100px 20px;
   overflow: hidden;
 }
 
@@ -464,6 +547,66 @@
   font-size: 48px;
   margin-bottom: 80px;
   font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .allmajor {
+    padding: 80px 20px;
+  }
+
+  .allmajor h1 {
+    font-size: 36px;
+    margin-bottom: 60px;
+  }
+
+  .carousel-wrapper {
+    padding: 40px 0;
+  }
+
+  .carousel-track {
+    gap: 25px;
+  }
+
+  .carousel-item {
+    min-width: 100px;
+    height: 100px;
+  }
+
+  .carousel-item img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .allmajor {
+    padding: 60px 15px;
+  }
+
+  .allmajor h1 {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+
+  .carousel-wrapper {
+    padding: 30px 0;
+  }
+
+  .carousel-track {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .carousel-item {
+    min-width: 80px;
+    height: 80px;
+  }
+
+  .carousel-item img {
+    width: 60px;
+    height: 60px;
+  }
 }
 
 .carousel-wrapper {
@@ -518,6 +661,12 @@
   padding: 100px 20px;
   max-width: 1400px;
   margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  .pricing-section-modern {
+    padding: 80px 15px;
+  }
 }
 
 .pricing-header-modern {
@@ -580,6 +729,13 @@
 .container {
             max-width: 1280px;
             margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        @media (max-width: 480px) {
+          .container {
+            padding: 0 15px;
+          }
         }
 
         .pricing-grid {
@@ -780,12 +936,26 @@
     margin: 0 auto;
 }
 
-/* About Us Title*/ 
+/* About Us Title*/
 .main-title {
     text-align: center;
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 48px;
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2rem;
+    margin-bottom: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 1.75rem;
+    margin-bottom: 24px;
+  }
 }
 
 /* Cards Grid */
@@ -806,7 +976,13 @@
     border: 1px solid #666;
     border-radius: 12px;
     padding: 24px;
-   /* position: relative;*/
+    position: relative;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 20px;
+  }
 }
 
 .icon-group {
@@ -847,6 +1023,16 @@
     transition: background-color 0.2s;
 }
 
+@media (max-width: 480px) {
+  .contact-btn {
+    position: static;
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 8px 16px;
+  }
+}
+
 .contact-btn:hover {
     background-color: #d08a50;
 }
@@ -879,6 +1065,39 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .accordion {
+    margin-bottom: 60px;
+  }
+
+  .faq-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .accordion {
+    margin-bottom: 40px;
+  }
+
+  .faq-title {
+    font-size: 1.25rem;
+  }
+
+  .accordion-item {
+    padding: 16px 20px;
+    font-size: 15px;
+  }
+
+  .accordion-content.open {
+    padding: 0 20px 20px 20px;
+  }
+
+  .accordion-content p {
+    font-size: 14px;
+  }
 }
 
 .accordion-wrapper {
@@ -954,6 +1173,36 @@
     margin-top: 100px;
     padding: 60px 40px 30px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .footer {
+    margin-top: 80px;
+    padding: 40px 20px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    margin-top: 60px;
+    padding: 30px 15px 15px;
+  }
+
+  .footer-text {
+    font-size: 14px;
+  }
+
+  .footer-email a {
+    font-size: 14px;
+  }
+
+  .footer-link {
+    font-size: 14px;
+  }
+
+  .footer-bottom p {
+    font-size: 12px;
+  }
 }
 
 .footer-content {
@@ -1421,6 +1670,22 @@
             overflow: hidden;
         }
 
+        @media (max-width: 768px) {
+          .modern-download-button {
+            padding: 16px 40px;
+            font-size: 16px;
+            margin-top: 30px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .modern-download-button {
+            padding: 14px 32px;
+            font-size: 14px;
+            margin-top: 20px;
+          }
+        }
+
         .modern-download-button::before {
             content: '';
             position: absolute;
@@ -1465,9 +1730,9 @@
             20%, 40%, 60%, 80% { transform: translateY(-5px) rotate(2deg); }
         }
           .icons-section {
-                position: absolute;
-                top: 180px;
-                left: 300px;
+                position: relative;
+                top: auto;
+                left: auto;
             }
         @media (max-width: 768px) {
             h1 {
@@ -1505,8 +1770,16 @@
           }
 
           .vido{
-            position: absolute;
-            left: 190px;
+            position: relative;
+            left: auto;
+          }
+
+          @media (max-width: 768px) {
+            .vido {
+              position: relative;
+              left: 0;
+              width: 100%;
+            }
           }
 
 /* Questionnaire Modal */
