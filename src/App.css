@@ -103,6 +103,8 @@
   border-radius: 25px;
   font-weight: 600;
   box-shadow: 0 4px 15px rgba(255, 61, 0, 0.3);
+  white-space: nowrap;
+  display: inline-block;
 }
 
 .navi a.download-btn:hover {
@@ -236,6 +238,8 @@
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
+  white-space: nowrap;
+  display: inline-block;
 }
 
 .hero-download-btn:hover {
@@ -538,7 +542,7 @@
 /* Carousel Styles */
 .allmajor {
   padding: 100px 20px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .allmajor h1 {
@@ -726,10 +730,153 @@
   }
 }
 
+/* Download Section */
+.download-section {
+  padding: 120px 20px;
+  background: linear-gradient(135deg, rgba(255, 138, 43, 0.1) 0%, rgba(255, 61, 0, 0.05) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.download-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.download-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #F89A3C 0%, #FF3D00 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.download-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 50px;
+  line-height: 1.6;
+}
+
+.download-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.platform-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 28px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  min-width: 200px;
+}
+
+.platform-btn:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 138, 43, 0.6);
+  background: rgba(255, 138, 43, 0.1);
+  box-shadow: 0 10px 30px rgba(255, 138, 43, 0.3);
+}
+
+.platform-btn svg {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+}
+
+.platform-btn div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.platform-btn small {
+  font-size: 11px;
+  opacity: 0.8;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.platform-btn strong {
+  font-size: 16px;
+  font-weight: 600;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .download-section {
+    padding: 80px 20px;
+  }
+
+  .download-title {
+    font-size: 36px;
+  }
+
+  .download-subtitle {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+
+  .download-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .platform-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .download-section {
+    padding: 60px 15px;
+  }
+
+  .download-title {
+    font-size: 28px;
+  }
+
+  .download-subtitle {
+    font-size: 14px;
+  }
+
+  .platform-btn {
+    padding: 14px 20px;
+    min-width: 180px;
+  }
+
+  .platform-btn svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .platform-btn strong {
+    font-size: 14px;
+  }
+}
+
 .container {
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 20px;
+            overflow: visible;
         }
 
         @media (max-width: 480px) {
@@ -1667,7 +1814,13 @@
             transition: all 0.3s ease;
             margin-top: 40px;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
+            white-space: nowrap;
+        }
+
+        .modern-download-button span {
+            position: relative;
+            z-index: 2;
         }
 
         @media (max-width: 768px) {
@@ -1697,6 +1850,8 @@
             background: rgba(255, 255, 255, 0.2);
             transform: translate(-50%, -50%);
             transition: width 0.6s, height 0.6s;
+            z-index: 1;
+            overflow: hidden;
         }
 
         .modern-download-button:hover::before {
