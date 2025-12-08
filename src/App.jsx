@@ -1,43 +1,186 @@
 import './App.css'
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import CalendarCarousel from './components/CalendarCarousel';
+import PricingCard from './components/PricingCard';
+
 function App() {
-  
+  const [openFaq, setOpenFaq] = useState(null);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const [showQuestionnaire, setShowQuestionnaire] = useState(false);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      const glow = document.querySelector('.cursor-glow');
+      if (glow) {
+        glow.style.left = e.clientX + 'px';
+        glow.style.top = e.clientY + 'px';
+      }
+    };
+
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    // Check if user has already seen the questionnaire
+    const hasSeenQuestionnaire = localStorage.getItem('hasSeenQuestionnaire');
+
+    if (!hasSeenQuestionnaire) {
+      // Show questionnaire after 2 seconds
+      const timer = setTimeout(() => {
+        setShowQuestionnaire(true);
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  const closeQuestionnaire = () => {
+    setShowQuestionnaire(false);
+    localStorage.setItem('hasSeenQuestionnaire', 'true');
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const faqData = [
+    {
+      question: "What is Iris?",
+      answer: "Iris is a productivity app that helps you organize your life with one click. It integrates with all your favorite apps to streamline your daily tasks and calendar."
+    },
+    {
+      question: "How does Iris work?",
+      answer: "Iris connects to your calendar, email, and other productivity tools to provide intelligent scheduling and task management. It analyzes your patterns and helps optimize your daily routine."
+    },
+    {
+      question: "What apps does Iris integrate with?",
+      answer: "Iris integrates with Gmail, Google Calendar, Apple Calendar, Slack, and many other popular productivity applications to give you a unified experience."
+    },
+    {
+      question: "Which platforms is Iris available on?",
+      answer: "Iris is available on iOS, Android, Windows, and macOS, ensuring you can stay organized across all your devices."
+    },
+    {
+      question: "Who is Iris for?",
+      answer: "Iris is perfect for professionals, students, and anyone looking to better manage their time and tasks. Whether you're juggling multiple projects or just want to stay on top of your schedule, Iris can help."
+    },
+    {
+      question: "How is Iris different from other productivity tools?",
+      answer: "Iris stands out with its AI-powered insights, seamless multi-app integration, and intuitive interface. It learns from your habits to provide personalized recommendations and automation."
+    }
+  ];
+
+  const pricingPlans = [
+    {
+      plan: 'Free',
+      price: 0,
+      features: [
+        '3 calendar runs per month',
+        'Basic calendar integration',
+        'Email notifications',
+        'Mobile app access',
+        'Community support'
+      ]
+    },
+    {
+      plan: 'Pro',
+      price: 29,
+      originalPrice: 35,
+      isPopular: true,
+      features: [
+        'Unlimited calendar runs',
+        'Advanced AI scheduling',
+        'All app integrations',
+        'Priority support',
+        'Custom workflows',
+        'Team collaboration (up to 5)',
+        'Analytics dashboard',
+        'Export reports'
+      ]
+    },
+    {
+      plan: 'Enterprise',
+      price: 99,
+      originalPrice: 115,
+      features: [
+        'Everything in Pro',
+        'Unlimited team members',
+        'Dedicated account manager',
+        '24/7 premium support',
+        'Custom integrations',
+        'SSO & advanced security',
+        'SLA guarantee',
+        'White-label options',
+        'API access'
+      ]
+    }
+  ];
 
   return (
     <>
-      <div>
-  <header className='head'>
+      <header className='head'>
 	<nav className='navi'>
-	<a href="">Download</a>
-	<a href="">Iris</a>
-	<a href="">Pricing</a>
-	<a href="">About us</a>
-	<a href="">FAQ</a>
+	<a href="#download" className="download-btn">Download</a>
+	<a href="#hero">Iris</a>
+	<a href="#pricing">Pricing</a>
+	<a href="#about">About us</a>
+	<a href="#faq">FAQ</a>
 	</nav>
 </header>
-      </div> 
 
-      <section className='logo-bg'>
-<img src="public/image/cat.png" className="logo"/>
+      <section className='hero' id="hero">
+        <div className="cursor-glow"></div>
+
+        <div className="hero-background">
+          <img src="public/image/ir.png" className="bg-img" alt="Iris background"></img>
+          <div className="hero-overlay"></div>
+        </div>
+
+        <div className="hero-content">
+          <h1 className="headline">
+            One click to<br />organize your life
+          </h1>
+          <p className="subtext">
+            Let iris guide you through your day to day
+          </p>
+
+          <div className="hero-cta">
+            <a href="#download" className="hero-download-btn">DOWNLOAD</a>
+            <p className="hero-subtext">
+              Start monitoring for free or <a href="#" className="demo-link">book a demo</a>
+            </p>
+          </div>
+        </div>
       </section>
 
-      <section className='hero'>
-         
-          <img src="public/image/ir.png" className="bg-img"></img>
-
-        
-              <h1 className="headline">One click to <br></br>organisze your life</h1>
-                <p className="subtext">let iris guide you through your<br></br> day to day .</p>
-          
-          
-            <div className="hero-holder">
-      <div className="card">
-        <div className="card-inner">
-          <a href="#" className="btn">DOWNLOAD</a>
-          <p className="small-text">Start monitoring for free or <a href="#">book a demo</a></p>
+      <section className="video-tutorial-section">
+        <h2>How Iris Works</h2>
+        <p>Watch our quick tutorial to learn how Iris can transform your productivity and help you organize your life in just one click.</p>
+        <div className="video-container">
+          <iframe
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            title="Iris Tutorial Video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
         </div>
-      </div>
-    </div>
       </section>
 
  <section class="trusted-section">
@@ -56,69 +199,34 @@ function App() {
       <img src="public/image/frame (1).png"  />
     </div>
 
-    <div class="calendar-row">
-      <h3>Calendar analysis</h3>
-
-      <div class="icons">
-        <div class="circle c1"></div>
-        <div class="circle c2"></div>
-        <div class="separator"></div>
-        <button class="faq-btn">FAQ</button>
-      </div>
-    </div>
-
   </section>
 
-    <section>
-      <div className='carousel-container'>
-    <div>
-
-         <div>
-            <video  width="800" className='vido'>
-  <source src="public/video/Delivery Iris.mp4" type="video/mp4"></source>
-  Votre navigateur ne supporte pas la vidéo.
-</video>
-
-        </div>
-    </div>
-</div>
-    </section>
+  <CalendarCarousel />
 
     <section className='allmajor'>
-       <div class="container">
+       <div className="container">
         <h1>All Major Apps Integrated</h1>
-        
-        <div class="icons-section">
-            <div class="icons-wrapper">
-                <div class="glow-effect"></div>
-                
-                <div class="icons-container">
-                    
-                    <div class="gmail-icon">
-                       <img src='public/image/gmail - Edited 1.png' width={100} height={100}></img>
-                    </div>
-                    
-                  
-                    <div class="google-calendar">
-                        <img src='public/image/googleCalendar - Edited 1.png' width={100} height={100}></img>
-                    </div>
-                    
-                  
-                    <div class="ios-calendar">
-                       <img src='public/image/calendar - Edited 1.png' width={64} height={64}></img>
-                    </div>
-                    
-                    
-                    <div class="slack-icon">
-                       <img src='public/image/Slack (icon — Colour).png' width={54} height={54}></img>
-                    </div>
+
+        <div className="carousel-wrapper">
+            <div className="carousel-track">
+                <div className="carousel-item">
+                    <img src='public/image/gmail - Edited 1.png' alt="Gmail" />
+                </div>
+                <div className="carousel-item">
+                    <img src='public/image/googleCalendar - Edited 1.png' alt="Google Calendar" />
+                </div>
+                <div className="carousel-item">
+                    <img src='public/image/calendar - Edited 1.png' alt="Calendar" />
+                </div>
+                <div className="carousel-item">
+                    <img src='public/image/Slack (icon — Colour).png' alt="Slack" />
                 </div>
             </div>
         </div>
 
-        <a href="#" class="download-button">
+        <a href="#download" className="modern-download-button">
             <span>Download Now</span>
-            <span class="arrow-icon">→</span>
+            <span className="arrow-icon">→</span>
         </a>
     </div>
      
@@ -126,377 +234,33 @@ function App() {
    
     </section>
 
-    <section>
-      <div>
-        <img src=''></img>
+    <section id="pricing" className="pricing-section-modern">
+      <div className="pricing-header-modern">
+        <h2 className="pricing-main-title">
+          Choose the plan that <span className="pricing-highlight">scales</span> with you
+        </h2>
+        <p className="pricing-subtitle">
+          Start free and upgrade as you grow. All plans include our core features with a 90-day money-back guarantee.
+        </p>
       </div>
-       <div className="text-center mb-12 mt-24" style={{textAlign:"center"}}>
-          <h2 className="mb-2">
-            Choose the plan that <span className="text-[#ff7b3d] italic font-serif">scales</span>
-          </h2>
-          <h2 className="text-[#ff7b3d] italic font-serif mb-6">with you</h2>
-          <p className="text-gray-500 text-sm">
-            Our FREE, users will be able to complete 3 runs per month and save first<br />
-            run data snapshot
-          </p>
-        </div>
 
-         <div class="container">
-        <div class="pricing-grid">
-        
-            <div class="pricing-card">
-                <div class="card-header">
-                    <h3 class="card-title">Starter</h3>
-                    <p class="card-description">
-                        Perfect for individuals and small teams just getting started with social media insights.
-                    </p>
-                    <div class="trusted-by">
-                        <span class="emoji">👤</span>
-                        <span>Join 2,500+ users</span>
-                    </div>
-                </div>
-
-                <div class="pricing-section">
-                    <div class="price-wrapper">
-                        <span class="price">$29</span>
-                        <span class="period">/mo</span>
-                    </div>
-                    <div class="price-details">
-                        <span class="original-price">$35</span>
-                        <span class="savings">Save 17%</span>
-                    </div>
-                    <div class="revenue-info">
-                        <span class="emoji">💰</span>
-                        <span>Avoid $500+ in manual research costs</span>
-                    </div>
-                </div>
-
-                <button class="cta-button cta-secondary">Get Early Bird Discount</button>
-
-                <div class="guarantee">
-                    <span class="emoji">🔒</span>
-                    <span>90-day money-back guarantee</span>
-                </div>
-
-                <div class="features-section">
-                    <p class="features-title">What's included:</p>
-                    <ul class="features-list">
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>30 days free tier (no credit card)</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>5 AI-copilot for every query</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>3 social media platforms (Reddit, Twitter, LinkedIn)</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Basic sentiment analysis</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Trend detection dashboard</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>1,000 monitored conversations/month</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Weekly insight reports</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Scheduled PDF reports and email alerts</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Email support</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>In-App live access</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="card-footer">
-                    Billed monthly • Cancel anytime
-                </div>
-            </div>
-
-          
-            <div class="pricing-card">
-                <div class="card-header">
-                    <h3 class="card-title">Intelligence</h3>
-                    <p class="card-description">
-                        Ideal for growing businesses and agencies who need comprehensive social media intelligence to drive strategy.
-                    </p>
-                    <div class="trusted-by">
-                        <span class="emoji">👤</span>
-                        <span>Trusted by 4,800+ businesses</span>
-                    </div>
-                </div>
-
-                <div class="pricing-section">
-                    <div class="price-wrapper">
-                        <span class="price">$99</span>
-                        <span class="period">/mo</span>
-                    </div>
-                    <div class="price-details">
-                        <span class="original-price">$115</span>
-                        <span class="savings">Save 13%</span>
-                    </div>
-                    <div class="revenue-info">
-                        <span class="emoji">💰</span>
-                        <span>Generate $2,000+ in additional revenue</span>
-                    </div>
-                </div>
-
-                <button class="cta-button cta-primary">Get Early Bird Discount</button>
-
-                <div class="guarantee">
-                    <span class="emoji">🔒</span>
-                    <span>90-day money-back guarantee</span>
-                </div>
-
-                <div class="features-section">
-                    <p class="features-title">What's included:</p>
-                    <ul class="features-list">
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Everything in Starter</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>60 days free trial (no credit card)</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>AI tutor All marketing models</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>All 6 social media platforms</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Advanced sentiment & emotion analysis</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Competitive tracking (5 competitors)</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Real-time alerts & notifications</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Custom report generation</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>API access</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Priority support</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>White-label reports</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Advanced analytics dashboards</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="card-footer">
-                    Billed monthly • Cancel anytime
-                </div>
-            </div>
-
-          
-            <div class="pricing-card">
-                <div class="card-header">
-                    <h3 class="card-title">Enterprise</h3>
-                    <p class="card-description">
-                        Full-scale AI marketing solution for large organizations with unlimited capabilities and dedicated support.
-                    </p>
-                    <div class="trusted-by">
-                        <span class="emoji">👤</span>
-                        <span>Loved by top 100 companies</span>
-                    </div>
-                </div>
-
-                <div class="pricing-section">
-                    <div class="price-wrapper">
-                        <span class="price">$299</span>
-                        <span class="period">/mo</span>
-                    </div>
-                    <div class="price-details">
-                        <span class="original-price">$329</span>
-                        <span class="savings">Save 9%</span>
-                    </div>
-                    <div class="revenue-info">
-                        <span class="emoji">💰</span>
-                        <span>Scale to $20,000+ in revenue</span>
-                    </div>
-                </div>
-
-                <button class="cta-button cta-secondary">Contact Sales</button>
-
-                <div class="guarantee">
-                    <span class="emoji">🔒</span>
-                    <span>90-day money-back guarantee</span>
-                </div>
-
-                <div class="features-section">
-                    <p class="features-title">What's included:</p>
-                    <ul class="features-list">
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Everything in Intelligence</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>90 days free trial</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Unlimited AI copilot access</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Unlimited social platforms</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Unlimited conversations/month</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Unlimited team members</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Custom AI model training</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Advanced automation workflows</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Multi-brand management</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Dedicated account manager</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>24/7 priority support</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Custom integrations</span>
-                        </li>
-                        <li class="feature-item">
-                            <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Advanced security & compliance</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="card-footer">
-                    Billed monthly • Cancel anytime
-                </div>
-            </div>
-        </div>
-    </div>
+      <div className="pricing-grid-modern">
+        {pricingPlans.map((plan, index) => (
+          <PricingCard
+            key={index}
+            plan={plan.plan}
+            price={plan.price}
+            originalPrice={plan.originalPrice}
+            features={plan.features}
+            isPopular={plan.isPopular}
+          />
+        ))}
+      </div>
     </section>
 
-    <section>
+    <section id="about">
 <div class="container">
-        
+
         <h1 class="main-title">About Us</h1>
 
         
@@ -528,77 +292,116 @@ function App() {
             </div>
         </div>
 
-      
-        <div class="faq-header">
-            <h2 class="faq-title">
-                Still have <span class="highlight">questions?</span>
+
+        <div className="faq-header" id="faq">
+            <h2 className="faq-title">
+                Still have <span className="highlight">questions?</span>
             </h2>
-            <p class="faq-subtitle">
-                Find answers to common questions about our AI-powered social media analysis platform.
+            <p className="faq-subtitle">
+                Find answers to common questions about our AI-powered productivity platform.
             </p>
         </div>
 
-        
-        <div class="accordion">
-            <button class="accordion-item" onclick="toggleAccordion(0)">
-                <span>What is Dinava?</span>
-                <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-            </button>
 
-            <button class="accordion-item" onclick="toggleAccordion(1)">
-                <span>How does Dinava ideally works?</span>
-                <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <div className="accordion">
+            {faqData.map((faq, index) => (
+              <div key={index} className="accordion-wrapper">
+                <button
+                  className={`accordion-item ${openFaq === index ? 'active' : ''}`}
+                  onClick={() => toggleFaq(index)}
+                >
+                  <span>{faq.question}</span>
+                  <svg className="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-            </button>
-
-            <button class="accordion-item" onclick="toggleAccordion(2)">
-                <span>What kind of insignias can I get from Dinava?</span>
-                <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-            </button>
-
-            <button class="accordion-item" onclick="toggleAccordion(3)">
-                <span>Which online communities does Dinava worked?</span>
-                <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-            </button>
-
-            <button class="accordion-item" onclick="toggleAccordion(4)">
-                <span>Who is Dinava for?</span>
-                <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-            </button>
-
-            <button class="accordion-item" onclick="toggleAccordion(5)">
-                <span>How is Dinava different from other overwheleving tools?</span>
-                <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-            </button>
+                  </svg>
+                </button>
+                <div className={`accordion-content ${openFaq === index ? 'open' : ''}`}>
+                  <p>{faq.answer}</p>
+                </div>
+              </div>
+            ))}
         </div>
 
-        
-        <footer class="footer">
-            <p class="footer-text">
-                Better than SEO? Low code mobile apps builder platform combines a
-                great user interface and reliable backend.
-            </p>
-            <div class="footer-links">
-                <a href="#" class="footer-link">•1-2X3 Veg-web</a>
-                <a href="#" class="footer-link">Struggling Indie.org</a>
+
+        <footer className="footer">
+            <div className="footer-content">
+              <div className="footer-section">
+                <p className="footer-text">
+                  Iris - Organize your life with one click. Intelligent scheduling and task management for the modern professional.
+                </p>
+                <p className="footer-email">
+                  <a href="mailto:irisapp42@gmail.com">irisapp42@gmail.com</a>
+                </p>
+              </div>
+              <div className="footer-links-section">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="footer-link">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                  LinkedIn
+                </a>
+                <a href="#privacy" className="footer-link">Privacy Policy</a>
+                <a href="#cookies" className="footer-link">Cookie Policy</a>
+              </div>
+            </div>
+            <div className="footer-bottom">
+              <p>© 2025 Iris. All rights reserved.</p>
             </div>
         </footer>
     </div>
-
-    <script src="/script.js"></script>
     </section>
-       
+
+    {showScrollTop && (
+      <button onClick={scrollToTop} className="scroll-to-top" aria-label="Scroll to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+      </button>
+    )}
+
+    {showQuestionnaire && (
+      <div className="modal-overlay" onClick={closeQuestionnaire}>
+        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+          <div className="modal-header">
+            <div className="modal-title-section">
+              <h2>Help Us Improve Iris</h2>
+              <p>Share your thoughts and help shape the future of productivity</p>
+            </div>
+            <button className="modal-close-btn" onClick={closeQuestionnaire}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+
+          <div className="modal-body">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLScmFU5CmdudW_kN-XKA4KmIL1uurCwUziWb2bA1yfUOTTXWsw/viewform?embedded=true"
+              className="questionnaire-iframe"
+              title="Iris Questionnaire"
+            >
+              Loading…
+            </iframe>
+          </div>
+
+          <div className="modal-footer">
+            <button className="skip-btn" onClick={closeQuestionnaire}>
+              Skip for now
+            </button>
+            <div className="modal-info">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              This will only appear once
+            </div>
+          </div>
+        </div>
+      </div>
+    )}
+
     </>
   )
 }
