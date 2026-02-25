@@ -166,8 +166,8 @@
   right: 0;
   bottom: 0;
   background: rgba(36, 36, 36, 0.7);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   z-index: 1;
 }
 
