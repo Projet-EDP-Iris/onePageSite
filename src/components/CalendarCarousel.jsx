@@ -1,27 +1,10 @@
 import React, { useState } from 'react';
 import './CalendarCarousel.css';
+import { translations } from '../translations';
 
-const CalendarCarousel = () => {
+const CalendarCarousel = ({ locale = 'fr' }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Exactly 3 cards as specified
-  const cardsData = [
-    {
-      id: 1,
-      title: "Weekly Overview",
-      description: "Track your weekly calendar patterns and optimize your schedule for maximum productivity.",
-    },
-    {
-      id: 2,
-      title: "Meeting Insights",
-      description: "Analyze meeting frequency and duration to better manage your time and commitments.",
-    },
-    {
-      id: 3,
-      title: "Time Allocation",
-      description: "Visualize how you spend your time across different categories and projects.",
-    }
-  ];
+  const { sectionTitle, cards: cardsData } = translations[locale]?.calendarCarousel || translations.fr.calendarCarousel;
 
   const handlePrev = () => {
     if (currentIndex > 0) {
@@ -37,7 +20,7 @@ const CalendarCarousel = () => {
 
   return (
     <div className="calendar-carousel-section">
-      <h2 className="carousel-section-title">Email analysis</h2>
+      <h2 className="carousel-section-title">{sectionTitle}</h2>
 
       <div className="calendar-cards-grid">
         {cardsData.map((card) => (
