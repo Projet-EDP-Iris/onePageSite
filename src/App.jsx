@@ -4,18 +4,27 @@ import CalendarCarousel from './components/CalendarCarousel';
 import PricingCard from './components/PricingCard';
 import { translations } from './translations';
 
+const getInitialLocale = () => {
+  const storedLocale = localStorage.getItem('iris-locale');
+  if (storedLocale && translations[storedLocale]) {
+    return storedLocale;
+  }
+  return 'fr';
+};
+
 function App() {
-  const [locale, setLocale] = useState(() => localStorage.getItem('iris-locale') || 'fr');
+  const [locale, setLocale] = useState(getInitialLocale);
   const [openFaq, setOpenFaq] = useState(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [showQuestionnaire, setShowQuestionnaire] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
 
-  const t = translations[locale];
+  const t = translations[locale] || translations.fr;
 
   const setLocaleAndPersist = (newLocale) => {
-    setLocale(newLocale);
-    localStorage.setItem('iris-locale', newLocale);
+    const safeLocale = translations[newLocale] ? newLocale : 'fr';
+    setLocale(safeLocale);
+    localStorage.setItem('iris-locale', safeLocale);
   };
 
   useEffect(() => {
