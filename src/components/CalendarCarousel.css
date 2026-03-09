@@ -133,3 +133,20 @@
     font-size: 28px;
   }
 }
+
+.calendar-card-image-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px; /* espace sous l'image */
+  width: 100%;          /* prend toute la largeur du card */
+  height: 220px;        /* un peu plus grand que 200px */
+  overflow: hidden;     /* cache tout débordement */
+}
+
+.calendar-card-image {
+  width: 100%;          /* prend toute la largeur du placeholder */
+  height: 100%;         /* prend toute la hauteur du placeholder */
+  object-fit: cover;    /* recouvre entièrement le rectangle */
+  border-radius: 12px;  /* coins arrondis */
+}

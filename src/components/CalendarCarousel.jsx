@@ -26,8 +26,8 @@ const CalendarCarousel = ({ locale = 'fr' }) => {
         {cardsData.map((card) => (
           <div key={card.id} className="calendar-card">
             <div className="calendar-card-image-placeholder">
-              <span className="placeholder-icon">📊</span>
-            </div>
+  {card.image && <img src={card.image} alt={card.title} className="calendar-card-image" />}
+</div>
 
             <div className="calendar-card-content">
               <h3 className="calendar-card-title">{card.title}</h3>

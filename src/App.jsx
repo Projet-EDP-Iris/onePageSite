@@ -97,7 +97,7 @@ function App() {
   const teamMembers = [
     { name: 'Dan Lyn Bayan Medou', linkedin: 'https://www.linkedin.com/in/dan-lyn-bayan-medou-614404190/', imageUrl: '/image/team/dan.jpeg' },
     { name: 'Sacha Halimi', linkedin: 'https://www.linkedin.com/in/sacha-halimi-438393327/', imageUrl: '/image/team/sacha.jpeg' },
-    { name: 'Marco Luis', linkedin: 'https://www.linkedin.com/in/marco-luis1/' },
+    { name: 'Marco Luis', linkedin: 'https://www.linkedin.com/in/marco-luis1/', imageUrl: '/image/team/marco.jpeg' },
     { name: 'Jerobel Otindo', linkedin: 'https://www.linkedin.com/in/jerobel-otindo-9030a533a/', imageUrl: '/image/team/jerobel.jpeg' },
     { name: 'Catrielle Michelle Kotti', linkedin: 'https://www.linkedin.com/in/catrielle-michelle-kotti/', imageUrl: '/image/team/catrielle.jpeg' }
   ];
@@ -159,18 +159,18 @@ function App() {
         </div>
       </section>
 
-      <section className="video-tutorial-section">
-        <h2>{t.video.title}</h2>
-        <p>{t.video.description}</p>
-        <div className="video-container">
-          <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title={t.video.iframeTitle}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
-      </section>
+<section className="video-tutorial-section">
+  <h2>{t.video.title}</h2>
+  <p>{t.video.description}</p>
+  <div className="video-container">
+    <iframe
+      src="https://www.youtube.com/embed/dVCHcU--9aI"
+      title={t.video.iframeTitle}
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    ></iframe>
+  </div>
+</section>
 
  <section class="trusted-section">
 
