@@ -1431,6 +1431,21 @@
   position: static;
 }
 
+.card-contact {
+    padding: 50px 24px 30px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
 .contact-linkedin-link {
   display: inline-flex;
   align-items: center;
