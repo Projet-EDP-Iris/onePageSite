@@ -2,11 +2,34 @@ import './App.css'
 import React, { useEffect, useState } from 'react';
 import CalendarCarousel from './components/CalendarCarousel';
 import PricingCard from './components/PricingCard';
+import { translations } from './translations';
+
+const getInitialLocale = () => {
+  const storedLocale = localStorage.getItem('iris-locale');
+  if (storedLocale && translations[storedLocale]) {
+    return storedLocale;
+  }
+  return 'fr';
+};
 
 function App() {
+  const [locale, setLocale] = useState(getInitialLocale);
   const [openFaq, setOpenFaq] = useState(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [showQuestionnaire, setShowQuestionnaire] = useState(false);
+  const [navOpen, setNavOpen] = useState(false);
+
+  const t = translations[locale] || translations.fr;
+
+  const setLocaleAndPersist = (newLocale) => {
+    const safeLocale = translations[newLocale] ? newLocale : 'fr';
+    setLocale(safeLocale);
+    localStorage.setItem('iris-locale', safeLocale);
+  };
+
+  useEffect(() => {
+    document.documentElement.lang = locale;
+  }, [locale]);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -29,6 +52,17 @@ function App() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    if (navOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [navOpen]);
 
   useEffect(() => {
     // Check if user has already seen the questionnaire
@@ -60,92 +94,47 @@ function App() {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  const faqData = [
-    {
-      question: "What is Iris?",
-      answer: "Iris is a productivity app that helps you organize your life with one click. It integrates with all your favorite apps to streamline your daily tasks and calendar."
-    },
-    {
-      question: "How does Iris work?",
-      answer: "Iris connects to your calendar, email, and other productivity tools to provide intelligent scheduling and task management. It analyzes your patterns and helps optimize your daily routine."
-    },
-    {
-      question: "What apps does Iris integrate with?",
-      answer: "Iris integrates with Gmail, Google Calendar, Apple Calendar, Slack, and many other popular productivity applications to give you a unified experience."
-    },
-    {
-      question: "Which platforms is Iris available on?",
-      answer: "Iris is available on iOS, Android, Windows, and macOS, ensuring you can stay organized across all your devices."
-    },
-    {
-      question: "Who is Iris for?",
-      answer: "Iris is perfect for professionals, students, and anyone looking to better manage their time and tasks. Whether you're juggling multiple projects or just want to stay on top of your schedule, Iris can help."
-    },
-    {
-      question: "How is Iris different from other productivity tools?",
-      answer: "Iris stands out with its AI-powered insights, seamless multi-app integration, and intuitive interface. It learns from your habits to provide personalized recommendations and automation."
-    }
+  const teamMembers = [
+    { name: 'Dan Lyn Bayan Medou', linkedin: 'https://www.linkedin.com/in/dan-lyn-bayan-medou-614404190/', imageUrl: '/image/team/dan.jpeg' },
+    { name: 'Sacha Halimi', linkedin: 'https://www.linkedin.com/in/sacha-halimi-438393327/', imageUrl: '/image/team/sacha.jpeg' },
+    { name: 'Marco Luis', linkedin: 'https://www.linkedin.com/in/marco-luis1/', imageUrl: '/image/team/marco.jpeg' },
+    { name: 'Jerobel Otindo', linkedin: 'https://www.linkedin.com/in/jerobel-otindo-9030a533a/', imageUrl: '/image/team/jerobel.jpeg' },
+    { name: 'Catrielle Michelle Kotti', linkedin: 'https://www.linkedin.com/in/catrielle-michelle-kotti/', imageUrl: '/image/team/catrielle.jpeg' }
   ];
 
-  const pricingPlans = [
-    {
-      plan: 'Free',
-      price: 0,
-      features: [
-        '3 calendar runs per month',
-        'Basic calendar integration',
-        'Email notifications',
-        'Mobile app access',
-        'Community support'
-      ]
-    },
-    {
-      plan: 'Pro',
-      price: 29,
-      originalPrice: 35,
-      isPopular: true,
-      features: [
-        'Unlimited calendar runs',
-        'Advanced AI scheduling',
-        'All app integrations',
-        'Priority support',
-        'Custom workflows',
-        'Team collaboration (up to 5)',
-        'Analytics dashboard',
-        'Export reports'
-      ]
-    },
-    {
-      plan: 'Enterprise',
-      price: 99,
-      originalPrice: 115,
-      features: [
-        'Everything in Pro',
-        'Unlimited team members',
-        'Dedicated account manager',
-        '24/7 premium support',
-        'Custom integrations',
-        'SSO & advanced security',
-        'SLA guarantee',
-        'White-label options',
-        'API access'
-      ]
-    }
-  ];
+  const pricingPlans = t.pricing.plans;
 
   return (
     <>
       <header className='head'>
-	<nav className='navi'>
-	<a href="#download" className="download-btn">Download</a>
-	<a href="#hero">Iris</a>
-	<a href="#pricing">Pricing</a>
-	<a href="#about">About us</a>
-	<a href="#faq">FAQ</a>
-	</nav>
+	<div className="head-nav-wrap">
+	  <button
+	    type="button"
+	    className={`nav-burger ${navOpen ? 'nav-burger-open' : ''}`}
+	    aria-label="Menu"
+	    aria-expanded={navOpen}
+	    onClick={() => setNavOpen((prev) => !prev)}
+	  >
+	    <span className="nav-burger-line" />
+	    <span className="nav-burger-line" />
+	    <span className="nav-burger-line" />
+	  </button>
+	  <nav className={`navi ${navOpen ? 'navi-open' : ''}`}>
+	    <a href="#download" className="download-btn" onClick={() => setNavOpen(false)}>{t.nav.download}</a>
+	    <a href="#download" onClick={() => setNavOpen(false)}>{t.nav.iris}</a>
+	    <a href="#pricing" onClick={() => setNavOpen(false)}>{t.nav.pricing}</a>
+	    <a href="#about" onClick={() => setNavOpen(false)}>{t.nav.aboutUs}</a>
+	    <a href="#faq" onClick={() => setNavOpen(false)}>{t.nav.faq}</a>
+	  </nav>
+	</div>
+	<div className="lang-toggle" role="group" aria-label="Switch language">
+	  <button type="button" className={`lang-option ${locale === 'fr' ? 'lang-active' : ''}`} onClick={() => setLocaleAndPersist('fr')} aria-current={locale === 'fr' ? 'true' : undefined}>FR</button>
+	  <span className="lang-sep">|</span>
+	  <button type="button" className={`lang-option ${locale === 'en' ? 'lang-active' : ''}`} onClick={() => setLocaleAndPersist('en')} aria-current={locale === 'en' ? 'true' : undefined}>EN</button>
+	</div>
 </header>
 
-      <section className='hero' id="hero">
+      <section className='hero' id="download">
         <div className="cursor-glow"></div>
 
         <div className="hero-background">
@@ -155,43 +144,43 @@ function App() {
 
         <div className="hero-content">
           <h1 className="headline">
-            One click to<br />organize your life
+            {t.hero.headlineBr}<br />{t.hero.headlineBr2}
           </h1>
           <p className="subtext">
-            Let iris guide you through your day to day
+            {t.hero.subtext}
           </p>
 
           <div className="hero-cta">
-            <a href="#download" className="hero-download-btn">DOWNLOAD</a>
+            <a href="#download" className="hero-download-btn">{t.hero.cta}</a>
             <p className="hero-subtext">
-              Start monitoring for free or <a href="#" className="demo-link">book a demo</a>
+              {t.hero.subtextCta}<a href="#" className="demo-link">{t.hero.bookDemo}</a>
             </p>
           </div>
         </div>
       </section>
 
-      <section className="video-tutorial-section">
-        <h2>How Iris Works</h2>
-        <p>Watch our quick tutorial to learn how Iris can transform your productivity and help you organize your life in just one click.</p>
-        <div className="video-container">
-          <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title="Iris Tutorial Video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
-      </section>
+<section className="video-tutorial-section">
+  <h2>{t.video.title}</h2>
+  <p>{t.video.description}</p>
+  <div className="video-container">
+    <iframe
+      src="https://www.youtube.com/embed/dVCHcU--9aI"
+      title={t.video.iframeTitle}
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    ></iframe>
+  </div>
+</section>
 
  <section class="trusted-section">
 
     
     <div class="top-line"></div>
 
-    <h2 class="title">
-      <span class="gradient">Trusted by</span>
-      <span class="italic"> leading</span><br />
-      brands
+    <h2 className="title">
+      <span className="gradient">{t.trusted.trustedBy}</span>
+      <span className="italic">{t.trusted.leading}</span><br />
+      {t.trusted.brands}
     </h2>
 
     <div class="logos">
@@ -201,11 +190,11 @@ function App() {
 
   </section>
 
-  <CalendarCarousel />
+  <CalendarCarousel locale={locale} />
 
     <section className='allmajor'>
        <div className="container">
-        <h1>All Major Apps Integrated</h1>
+        <h1>{t.allMajor.title}</h1>
 
         <div className="carousel-wrapper">
             <div className="carousel-track">
@@ -225,7 +214,7 @@ function App() {
         </div>
 
         <a href="#download" className="modern-download-button">
-            <span>Download Now</span>
+            <span>{t.allMajor.downloadNow}</span>
             <span className="arrow-icon">→</span>
         </a>
     </div>
@@ -237,10 +226,10 @@ function App() {
     <section id="pricing" className="pricing-section-modern">
       <div className="pricing-header-modern">
         <h2 className="pricing-main-title">
-          Choose the plan that <span className="pricing-highlight">scales</span> with you
+          {t.pricing.title}<span className="pricing-highlight">{t.pricing.scales}</span>{t.pricing.titleSuffix}
         </h2>
         <p className="pricing-subtitle">
-          Start free and upgrade as you grow. All plans include our core features with a 90-day money-back guarantee.
+          {t.pricing.subtitle}
         </p>
       </div>
 
@@ -253,6 +242,8 @@ function App() {
             originalPrice={plan.originalPrice}
             features={plan.features}
             isPopular={plan.isPopular}
+            strings={t.pricingCard}
+            isEnterprise={Boolean(plan.isEnterprise)}
           />
         ))}
       </div>
@@ -262,50 +253,69 @@ function App() {
     <section id="about">
 <div class="container">
 
-        <h1 class="main-title">About Us</h1>
+        <h1 className="main-title">{t.about.title}</h1>
 
         
         <div class="cards-grid">
             
-            <div class="card">
-                <div class="icon-group">
-                    <div class="icon-box"></div>
-                    <div class="icon-box"></div>
-                    <div class="icon-box"></div>
-                    <div class="icon-box"></div>
+            <div className="card card-team">
+                <h3 className="card-title">{t.about.theTeam}</h3>
+                <div className="team-grid">
+                  {teamMembers.map((member) => (
+                    <a
+                      key={member.linkedin}
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="team-member"
+                    >
+                      <div className="team-member-avatar" aria-hidden="true">
+                        {member.imageUrl ? (
+                          <img src={member.imageUrl} alt="" className="team-member-avatar-img" />
+                        ) : (
+                          <span className="team-member-avatar-emoji">👤</span>
+                        )}
+                      </div>
+                      <span className="team-member-name">{member.name}</span>
+                      <span className="team-member-linkedin">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                        {t.about.linkedIn}
+                      </span>
+                    </a>
+                  ))}
                 </div>
-                <h3 class="card-title">The Team</h3>
-                <p class="card-description">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.
-                </p>
             </div>
 
             
-            <div class="card">
-                <button class="contact-btn">Contact us</button>
-                <div class="icon-group">
-                    <div class="icon-box"></div>
+            <div className="card card-contact">
+                <h3 className="card-title card-contact-title">{t.about.getInTouch}</h3>
+                <div className="contact-card-actions">
+                  <a href="mailto:irisapp42@outlook.com" className="contact-btn">{t.about.contactUs}</a>
+                  <a href="https://www.linkedin.com/company/iris-software/" target="_blank" rel="noopener noreferrer" className="contact-linkedin-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    {t.about.linkedIn}
+                  </a>
                 </div>
-                <h3 class="card-title">Our Mission</h3>
-                <p class="card-description">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.
-                </p>
             </div>
         </div>
 
 
         <div className="faq-header" id="faq">
             <h2 className="faq-title">
-                Still have <span className="highlight">questions?</span>
+                {t.faq.title}<span className="highlight">{t.faq.questions}</span>
             </h2>
             <p className="faq-subtitle">
-                Find answers to common questions about our AI-powered productivity platform.
+                {t.faq.subtitle}
             </p>
         </div>
 
 
         <div className="accordion">
-            {faqData.map((faq, index) => (
+            {t.faq.items.map((faq, index) => (
               <div key={index} className="accordion-wrapper">
                 <button
                   className={`accordion-item ${openFaq === index ? 'active' : ''}`}
@@ -328,25 +338,25 @@ function App() {
             <div className="footer-content">
               <div className="footer-section">
                 <p className="footer-text">
-                  Iris - Organize your life with one click. Intelligent scheduling and task management for the modern professional.
+                  {t.footer.tagline}
                 </p>
                 <p className="footer-email">
                   <a href="mailto:irisapp42@gmail.com">irisapp42@gmail.com</a>
                 </p>
               </div>
               <div className="footer-links-section">
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="footer-link">
+                <a href="https://www.linkedin.com/company/iris-software/" target="_blank" rel="noopener noreferrer" className="footer-link">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                   </svg>
-                  LinkedIn
+                  {t.footer.linkedIn}
                 </a>
-                <a href="#privacy" className="footer-link">Privacy Policy</a>
-                <a href="#cookies" className="footer-link">Cookie Policy</a>
+                <a href="#privacy" className="footer-link">{t.footer.privacyPolicy}</a>
+                <a href="#cookies" className="footer-link">{t.footer.cookiePolicy}</a>
               </div>
             </div>
             <div className="footer-bottom">
-              <p>© 2025 Iris. All rights reserved.</p>
+              <p>{t.footer.copyright}</p>
             </div>
         </footer>
     </div>
@@ -365,8 +375,8 @@ function App() {
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
           <div className="modal-header">
             <div className="modal-title-section">
-              <h2>Help Us Improve Iris</h2>
-              <p>Share your thoughts and help shape the future of productivity</p>
+              <h2>{t.modal.title}</h2>
+              <p>{t.modal.subtitle}</p>
             </div>
             <button className="modal-close-btn" onClick={closeQuestionnaire}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -380,15 +390,15 @@ function App() {
             <iframe
               src="https://docs.google.com/forms/d/e/1FAIpQLScmFU5CmdudW_kN-XKA4KmIL1uurCwUziWb2bA1yfUOTTXWsw/viewform?embedded=true"
               className="questionnaire-iframe"
-              title="Iris Questionnaire"
+              title={t.modal.iframeTitle}
             >
-              Loading…
+              {t.modal.loading}
             </iframe>
           </div>
 
           <div className="modal-footer">
             <button className="skip-btn" onClick={closeQuestionnaire}>
-              Skip for now
+              {t.modal.skip}
             </button>
             <div className="modal-info">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -396,7 +406,7 @@ function App() {
                 <line x1="12" y1="16" x2="12" y2="12"></line>
                 <line x1="12" y1="8" x2="12.01" y2="8"></line>
               </svg>
-              This will only appear once
+              {t.modal.once}
             </div>
           </div>
         </div>
