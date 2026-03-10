@@ -18,7 +18,7 @@ export const translations = {
     },
     video: {
       title: 'Comment fonctionne Iris ?',
-      description: 'Iris transforme automatiquement vos emails et calendriers en actions : elle crée des tâches, propose des réponses et met en avant les messages prioritaires. Il ne vous reste plus qu’à valider en un clic. Regardez notre tutoriel ci-dessous.',
+      description: 'Iris transforme vos emails et calendriers en actions : elle crée des tâches, suggère des réponses et met en avant les messages prioritaires. Il ne vous reste plus qu’à valider en un clic. Regardez notre tutoriel ci-dessous.',
       iframeTitle: 'Vidéo tutoriel Iris',
     },
     trusted: {
@@ -182,7 +182,7 @@ export const translations = {
     },
     video: {
       title: 'How Iris Works ?',
-      description: 'Iris automatically turns your emails and calendars into actionable tasks: it creates tasks, suggests replies, and highlights priority messages. All you have to do is approve them with one click. Watch our tutorial below.',
+      description: 'Iris turns your emails and calendars into actions: it creates tasks, suggests replies, and highlights priority messages. All you have to do is approve them with one click. Watch our tutorial below.',
       iframeTitle: 'Iris Tutorial Video',
     },
     trusted: { trustedBy: 'Leading companies choose', leading: ' Iris ', brands: 'to simplify their email and task management' },
@@ -223,6 +223,28 @@ export const translations = {
     },
     modal: { title: 'Help Us Improve Iris', subtitle: 'Share your thoughts and help shape the future of productivity', skip: 'Skip for now', once: 'This will only appear once', loading: 'Loading…', iframeTitle: 'Iris Questionnaire' },
     pricingCard: { mostPopular: 'Most Popular', perMonth: '/mo', save: 'Save', contactSales: 'Contact Sales', getStarted: 'Get Started', whatsIncluded: "What's included:", guarantee: '90-day money-back guarantee • Cancel anytime' },
-    calendarCarousel: { sectionTitle: 'Our Features', cards: [{id:1,title:'Smart Email Sorting',description:'Iris automatically sorts your emails into three categories to keep your inbox clear.'},{id:2,title:'Summaries of long emails',description:'Iris summarizes your emails to grasp the essentials in seconds.'},{id:3,title:'Replies and Actions',description:'Iris offers ready-to-send replies and suggests the next actions, such as scheduling a meeting.'}] },
+    calendarCarousel: {
+  sectionTitle: 'Our Features',
+  cards: [
+    {
+      id: 1,
+      image: '/image/category.jpeg',
+      title: 'Smart Email Sorting',
+      description: 'Iris automatically sorts your emails into three categories to keep your inbox clear.'
+    },
+    {
+      id: 2,
+      image: '/image/resume.jpeg',
+      title: 'Summaries of long emails',
+      description: 'Iris summarizes your emails to grasp the essentials in seconds.'
+    },
+    {
+      id: 3,
+      image: '/image/reponse.jpeg',
+      title: 'Replies and Actions',
+      description: 'Iris offers ready-to-send replies and suggests the next actions, such as scheduling a meeting.'
+    }
+  ]
+},
   },
 };
