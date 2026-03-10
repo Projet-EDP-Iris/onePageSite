@@ -243,7 +243,7 @@ function App() {
             features={plan.features}
             isPopular={plan.isPopular}
             strings={t.pricingCard}
-            isEnterprise={plan.isEnterprise ?? index === 2}
+            isEnterprise={Boolean(plan.isEnterprise)}
           />
         ))}
       </div>
