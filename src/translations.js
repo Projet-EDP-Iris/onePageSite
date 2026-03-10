@@ -121,7 +121,7 @@ export const translations = {
           answer: "Non, tu peux commencer à utiliser Iris totalement gratuitement. La version gratuite te permet de tester le compagnon et de prendre le contrôle de tes e-mails et rendez-vous sans rien payer. Si tu as ensuite besoin de gérer un plus grand volume d’actions ou d’accéder à des fonctionnalités avancées (création et envoi de newsletters directement à tes destinataires), des abonnements Pro et des offres Entreprise sont proposés.",
         },
         {
-          question: 'Iris respecte-t-elle la confidentialité et la RGPD ?',
+          question: 'Iris respecte-t-elle la confidentialité et le RGPD ?',
           answer: "Oui, à 100%. L’intelligence artificielle d’Iris tourne localement, c’est-à-dire directement sur ton ordinateur. Tes e-mails et tes données ne sont jamais envoyés sur des serveurs externes pour être analysés. Ce qui se passe dans ta boîte mail reste dans ta boîte mail. De plus, Iris ne fait rien sans ton accord, elle te propose des actions, mais c’est toujours toi qui as le dernier mot.",
         },
         {
