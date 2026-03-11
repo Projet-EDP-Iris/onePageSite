@@ -20,8 +20,9 @@ jobs:
       - name: Generate tag name
         id: tag
         run: |
-          # Get current date and time for unique tag
-          TAG="snapshot-$(date +'%Y%m%d-%H%M%S')"
+          # Get current date/time and short commit SHA for a collision-resistant tag
+          SHORT_SHA="${GITHUB_SHA::8}"
+          TAG="snapshot-$(date +'%Y%m%d-%H%M%S')-${SHORT_SHA}"
           echo "tag_name=$TAG" >> $GITHUB_OUTPUT
           echo "Generated tag: $TAG"
       
