@@ -500,11 +500,12 @@
       line-height: 1.1;
     }
 
-    .gradient {
-      background: linear-gradient(90deg, #ff8c00, #ff5a14);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
+.gradient {
+  background: linear-gradient(90deg, #ff8c00, #ff5a14);
+  -webkit-background-clip: text; 
+  background-clip: text;         
+  color: transparent;
+}
 
     .italic {
       font-style: italic;
@@ -1285,9 +1286,9 @@
     border-radius: 4px;
 }
 
-/* Team card */
 .card-team .card-title {
   margin-bottom: 20px;
+  color: white !important;
 }
 
 .team-grid {
@@ -1329,7 +1330,7 @@
 }
 
 .team-member:hover {
-  background-color: rgba(255, 138, 43, 0.1);
+  background-color: rgba(226, 219, 213, 0.1);
 }
 
 .team-member-avatar {
@@ -1430,6 +1431,21 @@
   position: static;
 }
 
+.card-contact {
+    padding: 50px 24px 30px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
 .contact-linkedin-link {
   display: inline-flex;
   align-items: center;
@@ -1478,6 +1494,8 @@
     text-align: center;
     margin-bottom: 32px;
 }
+
+
 
 .faq-title {
     font-size: 2rem;
