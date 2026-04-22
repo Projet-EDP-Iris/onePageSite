@@ -10,13 +10,13 @@ const PricingCard = ({ plan, price, originalPrice, features, isPopular, strings,
       <div className="pricing-header">
         <h3 className="pricing-plan-name">{plan}</h3>
         <div className="pricing-amount">
-          <span className="price-symbol">$</span>
           <span className="price-value">{price}</span>
+          <span className="price-symbol">€</span>
           <span className="price-period">{s.perMonth != null ? s.perMonth : '/mo'}</span>
         </div>
         {originalPrice && (
           <div className="pricing-original">
-            <span className="original-price">${originalPrice}</span>
+            <span className="original-price">{originalPrice}€</span>
             <span className="savings-badge">{s.save != null ? s.save : 'Save'} {Math.round((1 - price/originalPrice) * 100)}%</span>
           </div>
         )}
