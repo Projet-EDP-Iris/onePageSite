@@ -133,7 +133,7 @@ function App() {
 	    <span className="nav-burger-line" />
 	  </button>
 	  <nav className={`navi ${navOpen ? 'navi-open' : ''}`}>
-	    <a href="#download" className="download-btn" onClick={() => setNavOpen(false)}>{t.nav.download}</a>
+	    <a href={os === 'mac' ? MAC_URL : WIN_URL} className="download-btn" onClick={() => setNavOpen(false)}>{t.nav.download}</a>
 	    <a href="#download" onClick={() => setNavOpen(false)}>{t.nav.iris}</a>
 	    <a href="#pricing" onClick={() => setNavOpen(false)}>{t.nav.pricing}</a>
 	    <a href="#about" onClick={() => setNavOpen(false)}>{t.nav.aboutUs}</a>
@@ -151,7 +151,7 @@ function App() {
         <div className="cursor-glow"></div>
 
         <div className="hero-background">
-          <img src="/image/ir.png" className="bg-img" alt="Iris background"></img>
+          <img src="/image/ir.png" className="bg-img" alt="Iris background" loading="eager" fetchpriority="high"></img>
           <div className="hero-overlay"></div>
         </div>
 
@@ -204,8 +204,8 @@ function App() {
     </h2>
 
     <div class="logos">
-      <img src="/image/Frame.png"  />
-      <img src="/image/Frame (1).png"  />
+      <img src="/image/Frame.png" loading="lazy" alt="Partner brand" />
+      <img src="/image/Frame (1).png" loading="lazy" alt="Partner brand" />
     </div>
 
   </section>
@@ -219,16 +219,16 @@ function App() {
         <div className="carousel-wrapper">
             <div className="carousel-track">
                 <div className="carousel-item">
-                    <img src='/image/gmail - Edited 1.png' alt="Gmail" />
+                    <img src='/image/gmail - Edited 1.png' alt="Gmail" loading="lazy" />
                 </div>
                 <div className="carousel-item">
-                    <img src='/image/googleCalendar - Edited 1.png' alt="Google Calendar" />
+                    <img src='/image/googleCalendar - Edited 1.png' alt="Google Calendar" loading="lazy" />
                 </div>
                 <div className="carousel-item">
-                    <img src='/image/calendar - Edited 1.png' alt="Calendar" />
+                    <img src='/image/calendar - Edited 1.png' alt="Calendar" loading="lazy" />
                 </div>
                 <div className="carousel-item">
-                    <img src='/image/Slack (icon — Colour).png' alt="Slack" />
+                    <img src='/image/Slack (icon — Colour).png' alt="Slack" loading="lazy" />
                 </div>
             </div>
         </div>
