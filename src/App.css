@@ -2103,98 +2103,44 @@
             left: 0;
         }
 
-        /* Modern Download Button */
+        /* Modern Download Button - Simplified and clean */
         .modern-download-button {
             display: inline-flex;
             align-items: center;
             gap: 12px;
             background: linear-gradient(135deg, #ff8a2b 0%, #ff3d00 100%);
             color: white;
-            padding: 18px 48px;
-            border-radius: 50px;
+            padding: 16px 48px;
+            border-radius: 30px;
             text-decoration: none;
             font-family: 'Montserrat', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            box-shadow: 0 10px 30px rgba(255, 61, 0, 0.4);
-            transition: all 0.3s ease;
-            margin-top: 40px;
-            position: relative;
-            overflow: visible;
-            white-space: nowrap;
-            width: auto;
-            min-width: fit-content;
-            min-height: 48px;
-            box-sizing: border-box;
-        }
-
-        .modern-download-button span {
-            position: relative;
-            z-index: 2;
-        }
-
-        @media (max-width: 768px) {
-          .modern-download-button {
-            padding: 16px 40px;
             font-size: 16px;
-            margin-top: 30px;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .modern-download-button {
-            padding: 14px 32px;
-            font-size: 14px;
-            margin-top: 20px;
-            min-height: 44px;
-          }
-        }
-
-        .modern-download-button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        .modern-download-button:hover::before {
-            width: 300px;
-            height: 300px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 25px rgba(255, 61, 0, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 40px;
+            cursor: pointer;
+            white-space: nowrap;
         }
 
         .modern-download-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(255, 61, 0, 0.5);
-            animation: shake 0.6s ease-in-out;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 61, 0, 0.5);
+            background: linear-gradient(135deg, #ffa04d 0%, #ff5722 100%);
         }
 
         .modern-download-button:active {
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
 
         .modern-download-button .arrow-icon {
             font-size: 20px;
-            font-weight: bold;
             transition: transform 0.3s ease;
         }
 
         .modern-download-button:hover .arrow-icon {
             transform: translateX(5px);
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: translateY(-5px) rotate(0deg); }
-            10%, 30%, 50%, 70%, 90% { transform: translateY(-5px) rotate(-2deg); }
-            20%, 40%, 60%, 80% { transform: translateY(-5px) rotate(2deg); }
         }
           .icons-section {
                 position: relative;
@@ -2457,5 +2403,76 @@
   .skip-btn {
     width: 100%;
     text-align: center;
+  }
+}
+
+/* Pricing Toggle Switch */
+.pricing-toggle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.pricing-toggle-switch {
+  display: flex;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 6px;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  min-width: 320px;
+}
+
+.pricing-toggle-btn {
+  flex: 1;
+  padding: 12px 24px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 35px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.pricing-toggle-btn.active {
+  color: white;
+}
+
+.pricing-toggle-btn:hover:not(.active) {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.pricing-toggle-slider {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: calc(50% - 6px);
+  height: calc(100% - 12px);
+  background: linear-gradient(135deg, #ff8a2b 0%, #ff3d00 100%);
+  border-radius: 35px;
+  box-shadow: 0 4px 15px rgba(255, 61, 0, 0.4);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.pricing-toggle-switch[data-mode='enterprise'] .pricing-toggle-slider {
+  transform: translateX(100%);
+}
+
+@media (max-width: 480px) {
+  .pricing-toggle-switch {
+    min-width: 280px;
+  }
+  .pricing-toggle-btn {
+    padding: 10px 16px;
+    font-size: 14px;
   }
 }

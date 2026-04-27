@@ -18,6 +18,20 @@ function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [showQuestionnaire, setShowQuestionnaire] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
+  const [pricingMode, setPricingMode] = useState('individual');
+  const [os, setOs] = useState('mac');
+
+  const MAC_URL = "https://github.com/Projet-EDP-Iris/irisFrontendApp/releases/latest/download/Iris.dmg";
+  const WIN_URL = "https://github.com/Projet-EDP-Iris/irisFrontendApp/releases/latest/download/Iris-Setup.exe";
+
+  useEffect(() => {
+    const platform = window.navigator.platform.toLowerCase();
+    if (platform.includes('win')) {
+      setOs('windows');
+    } else {
+      setOs('mac');
+    }
+  }, []);
 
   const t = translations[locale] || translations.fr;
 
@@ -97,12 +111,11 @@ function App() {
   const teamMembers = [
     { name: 'Dan Lyn Bayan Medou', linkedin: 'https://www.linkedin.com/in/dan-lyn-bayan-medou-614404190/', imageUrl: '/image/team/dan.jpeg' },
     { name: 'Sacha Halimi', linkedin: 'https://www.linkedin.com/in/sacha-halimi-438393327/', imageUrl: '/image/team/sacha.jpeg' },
-    { name: 'Marco Luis', linkedin: 'https://www.linkedin.com/in/marco-luis1/', imageUrl: '/image/team/marco.jpeg' },
     { name: 'Jerobel Otindo', linkedin: 'https://www.linkedin.com/in/jerobel-otindo-9030a533a/', imageUrl: '/image/team/jerobel.jpeg' },
     { name: 'Catrielle Michelle Kotti', linkedin: 'https://www.linkedin.com/in/catrielle-michelle-kotti/', imageUrl: '/image/team/catrielle.jpeg' }
   ];
 
-  const pricingPlans = t.pricing.plans;
+  const pricingPlans = pricingMode === 'individual' ? t.pricing.individualPlans : t.pricing.enterprisePlans;
 
   return (
     <>
@@ -120,7 +133,7 @@ function App() {
 	    <span className="nav-burger-line" />
 	  </button>
 	  <nav className={`navi ${navOpen ? 'navi-open' : ''}`}>
-	    <a href="#download" className="download-btn" onClick={() => setNavOpen(false)}>{t.nav.download}</a>
+	    <a href={os === 'mac' ? MAC_URL : WIN_URL} className="download-btn" onClick={() => setNavOpen(false)}>{t.nav.download}</a>
 	    <a href="#download" onClick={() => setNavOpen(false)}>{t.nav.iris}</a>
 	    <a href="#pricing" onClick={() => setNavOpen(false)}>{t.nav.pricing}</a>
 	    <a href="#about" onClick={() => setNavOpen(false)}>{t.nav.aboutUs}</a>
@@ -138,7 +151,7 @@ function App() {
         <div className="cursor-glow"></div>
 
         <div className="hero-background">
-          <img src="/image/ir.png" className="bg-img" alt="Iris background"></img>
+          <img src="/image/ir.png" className="bg-img" alt="Iris background" loading="eager" fetchpriority="high"></img>
           <div className="hero-overlay"></div>
         </div>
 
@@ -151,9 +164,16 @@ function App() {
           </p>
 
           <div className="hero-cta">
-            <a href="#download" className="hero-download-btn">{t.hero.cta}</a>
+            <a 
+              href={os === 'mac' ? MAC_URL : WIN_URL} 
+              className="hero-download-btn"
+            >
+              {t.hero.cta} {os === 'mac' ? '(macOS)' : '(Windows)'}
+            </a>
             <p className="hero-subtext">
-              {t.hero.subtextCta}<a href="#" className="demo-link">{t.hero.bookDemo}</a>
+              <a href={os === 'mac' ? WIN_URL : MAC_URL} className="demo-link">
+                {os === 'mac' ? 'Version Windows' : 'Version macOS'}
+              </a>
             </p>
           </div>
         </div>
@@ -184,8 +204,8 @@ function App() {
     </h2>
 
     <div class="logos">
-      <img src="/image/Frame.png"  />
-      <img src="/image/Frame (1).png"  />
+      <img src="/image/Frame.png" loading="lazy" alt="Partner brand" />
+      <img src="/image/Frame (1).png" loading="lazy" alt="Partner brand" />
     </div>
 
   </section>
@@ -199,22 +219,25 @@ function App() {
         <div className="carousel-wrapper">
             <div className="carousel-track">
                 <div className="carousel-item">
-                    <img src='/image/gmail - Edited 1.png' alt="Gmail" />
+                    <img src='/image/gmail - Edited 1.png' alt="Gmail" loading="lazy" />
                 </div>
                 <div className="carousel-item">
-                    <img src='/image/googleCalendar - Edited 1.png' alt="Google Calendar" />
+                    <img src='/image/googleCalendar - Edited 1.png' alt="Google Calendar" loading="lazy" />
                 </div>
                 <div className="carousel-item">
-                    <img src='/image/calendar - Edited 1.png' alt="Calendar" />
+                    <img src='/image/calendar - Edited 1.png' alt="Calendar" loading="lazy" />
                 </div>
                 <div className="carousel-item">
-                    <img src='/image/Slack (icon — Colour).png' alt="Slack" />
+                    <img src='/image/Slack (icon — Colour).png' alt="Slack" loading="lazy" />
                 </div>
             </div>
         </div>
 
-        <a href="#download" className="modern-download-button">
-            <span>{t.allMajor.downloadNow}</span>
+        <a 
+          href={os === 'mac' ? MAC_URL : WIN_URL} 
+          className="modern-download-button"
+        >
+            <span>{t.allMajor.downloadNow} {os === 'mac' ? '(macOS)' : '(Windows)'}</span>
             <span className="arrow-icon">→</span>
         </a>
     </div>
@@ -231,6 +254,24 @@ function App() {
         <p className="pricing-subtitle">
           {t.pricing.subtitle}
         </p>
+      </div>
+      
+      <div className="pricing-toggle-container">
+        <div className="pricing-toggle-switch" data-mode={pricingMode}>
+          <div className="pricing-toggle-slider"></div>
+          <button 
+            className={`pricing-toggle-btn ${pricingMode === 'individual' ? 'active' : ''}`}
+            onClick={() => setPricingMode('individual')}
+          >
+            {t.pricing.tabs.individual}
+          </button>
+          <button 
+            className={`pricing-toggle-btn ${pricingMode === 'enterprise' ? 'active' : ''}`}
+            onClick={() => setPricingMode('enterprise')}
+          >
+            {t.pricing.tabs.enterprise}
+          </button>
+        </div>
       </div>
 
       <div className="pricing-grid-modern">
