@@ -18,7 +18,7 @@ export const translations = {
     },
     video: {
       title: 'Comment fonctionne Iris ?',
-      description: 'Iris transforme vos emails et calendriers en actions : elle crée des tâches, suggère des réponses et met en avant les messages prioritaires. Il ne vous reste plus qu’à valider en un clic. Regardez notre tutoriel ci-dessous.',
+      description: 'Iris transforme vos emails et calendriers en actions : elle crée des tâches, suggère des réponses et met en avant les messages prioritaires. Il ne vous reste plus qu\'à valider en un clic. Regardez notre tutoriel ci-dessous.',
       iframeTitle: 'Vidéo tutoriel Iris',
     },
     trusted: {
@@ -84,12 +84,12 @@ export const translations = {
       enterprisePlans: [
         {
           plan: '100 Salariés',
-          price: '7,90',
+          price: '9,99',
           originalPrice: null,
           isPopular: false,
           isEnterprise: true,
           features: [
-            '9 480 € / an total',
+            '11 988 € / an total',
             '+ 5 salariés offerts',
             'Console d\'administration',
             'Sécurisation des données locale',
@@ -98,12 +98,12 @@ export const translations = {
         },
         {
           plan: '250 Salariés',
-          price: '6,90',
+          price: '7,99',
           originalPrice: null,
           isPopular: true,
           isEnterprise: true,
           features: [
-            '20 700 € / an total',
+            '23 970 € / an total',
             '+ 7% salariés offerts',
             'Tout l\'offre 100 salariés',
             'Analytique avancée équipe',
@@ -112,12 +112,12 @@ export const translations = {
         },
         {
           plan: '1000 Salariés',
-          price: '4,90',
+          price: '4,99',
           originalPrice: null,
           isPopular: false,
           isEnterprise: true,
           features: [
-            '58 800 € / an total',
+            '59 880 € / an total',
             '+ 10% salariés offerts',
             'Meilleur tarif par membre',
             'Formation personnalisée',
@@ -129,7 +129,7 @@ export const translations = {
     about: {
       title: 'À propos de nous',
       theTeam: 'Une équipe dédiée à rendre votre quotidien plus simple et plus organisé',
-      getInTouch: 'Des questions ? Écrivez-nous sur “Contactez-nous” ou retrouvez-nous sur LinkedIn',
+      getInTouch: 'Des questions ? Écrivez-nous sur "Contactez-nous" ou retrouvez-nous sur LinkedIn',
       contactUs: 'Contactez-nous',
       linkedIn: 'LinkedIn', 
     },
@@ -140,15 +140,15 @@ export const translations = {
       items: [
         {
           question: 'Qu\'est-ce qu\'Iris ?',
-          answer: "Là où une simple boîte mail s’arrête, Iris prend le relais, ce compagnon intelligent transforme vos emails en actions concrètes. Elle organise tes échanges par priorité et s’intègre aux applications que tu utilises déjà pour gérer ton agenda, tes tâches ou tes réponses en un seul clic.",
+          answer: "Là où une simple boîte mail s'arrête, Iris prend le relais, ce compagnon intelligent transforme vos emails en actions concrètes. Elle organise tes échanges par priorité et s'intègre aux applications que tu utilises déjà pour gérer ton agenda, tes tâches ou tes réponses en un seul clic.",
         },
         {
           question: 'Comment fonctionne Iris ?',
-          answer: "Iris se connecte à tes mails et calendriers pour transformer automatiquement tes messages en actions, tout en gardant tes données privées et sécurisées sur ton ordinateur. Elle détecte les échéances, crée des tâches à suivre, suggère des réponses adaptées, propose des créneaux disponibles et met en avant les messages prioritaires pour faciliter le suivi. Il ne te reste plus qu’à valider ces actions en un seul clic. Tes informations restent entièrement sous ton contrôle et ne sont jamais envoyées sur des serveurs externes",
+          answer: "Iris se connecte à tes mails et calendriers pour transformer automatiquement tes messages en actions, tout en gardant tes données privées et sécurisées sur ton ordinateur. Elle détecte les échéances, crée des tâches à suivre, suggère des réponses adaptées, propose des créneaux disponibles et met en avant les messages prioritaires pour faciliter le suivi. Il ne te reste plus qu'à valider ces actions en un seul clic. Tes informations restent entièrement sous ton contrôle et ne sont jamais envoyées sur des serveurs externes",
         },
         {
-          question: 'À quelles applications Iris s’intègre-t-elle ?',
-          answer: "Iris est une application de bureau qui centralise vos outils préférés. Elle s’intègre à Gmail et Outlook pour gérer vos e-mails, et se synchronise avec Google Calendar et Apple Calendar pour organiser vos rendez-vous au même endroit. La version bêta est en cours de déploiement, et vos données restent privées et protégées grâce à des standards stricts de sécurité.",
+          question: 'À quelles applications Iris s\'intègre-t-elle ?',
+          answer: "Iris est une application de bureau qui centralise vos outils préférés. Elle s'intègre à Gmail et Outlook pour gérer vos e-mails, et se synchronise avec Google Calendar et Apple Calendar pour organiser vos rendez-vous au même endroit. La version bêta est en cours de déploiement, et vos données restent privées et protégées grâce à des standards stricts de sécurité.",
         },
         {
           question: 'Sur quelles plateformes Iris est-il disponible ?',
@@ -156,19 +156,19 @@ export const translations = {
         },
         {
           question: 'À qui s\'adresse Iris ?',
-          answer: "À toi, si ta boîte mail est devenue une source de charge mentale plutôt qu’un outil. Iris est pensée pour les personnes qui reçoivent beaucoup d’e-mails qui demandent d’agir, répondre, planifier, suivre une demande ou ne pas oublier une relance. Si tu veux garder la main mise sur tes mails tout en dépensant ton temps efficacement, Iris transforme ce flux en un espace de travail clair et organisé.",
+          answer: "À toi, si ta boîte mail est devenue une source de charge mentale plutôt qu'un outil. Iris est pensée pour les personnes qui reçoivent beaucoup d'e-mails qui demandent d'agir, répondre, planifier, suivre une demande ou ne pas oublier une relance. Si tu veux garder la main mise sur tes mails tout en dépensant ton temps efficacement, Iris transforme ce flux en un espace de travail clair et organisé.",
         },
         {
-          question: 'Est-ce qu’Iris est payante ?',
+          question: 'Est-ce qu\'Iris est payante ?',
           answer: "Iris propose des abonnements individuels flexibles en fonction de vos besoins : 3 mois, 6 mois ou 12 mois. Chaque offre vous donne un accès complet à l'intelligence artificielle locale pour automatiser vos emails et votre calendrier. Plus vous vous engagez sur la durée, plus le tarif mensuel est avantageux.",
         },
         {
           question: 'Iris respecte-t-elle la confidentialité et le RGPD ?',
-          answer: "Oui, à 100%. L’intelligence artificielle d’Iris tourne localement, c’est-à-dire directement sur ton ordinateur. Tes e-mails et tes données ne sont jamais envoyés sur des serveurs externes pour être analysés. Ce qui se passe dans ta boîte mail reste dans ta boîte mail. De plus, Iris ne fait rien sans ton accord, elle te propose des actions, mais c’est toujours toi qui as le dernier mot.",
+          answer: "Oui, à 100%. L'intelligence artificielle d'Iris tourne localement, c'est-à-dire directement sur ton ordinateur. Tes e-mails et tes données ne sont jamais envoyés sur des serveurs externes pour être analysés. Ce qui se passe dans ta boîte mail reste dans ta boîte mail. De plus, Iris ne fait rien sans ton accord, elle te propose des actions, mais c'est toujours toi qui as le dernier mot.",
         },
         {
           question: 'En quoi Iris est-elle différente des autres outils ?',
-          answer: "Iris ne se contente pas de trier tes e-mails, elle comprend ce qu’ils impliquent. Elle transforme tes messages en actions concrètes, relie automatiquement ta messagerie à ton agenda et organise tes tâches pour toi. Tout est préparé, il ne te reste plus qu’à valider en un clic, tout en gardant le contrôle total de tes données et de ton workflow.",
+          answer: "Iris ne se contente pas de trier tes e-mails, elle comprend ce qu'ils impliquent. Elle transforme tes messages en actions concrètes, relie automatiquement ta messagerie à ton agenda et organise tes tâches pour toi. Tout est préparé, il ne te reste plus qu'à valider en un clic, tout en gardant le contrôle total de tes données et de ton workflow.",
         },
       ],
     },
@@ -197,13 +197,13 @@ export const translations = {
       guarantee: 'Garantie satisfait ou remboursé 90 jours • Annulez à tout moment',
     },
     calendarCarousel: {
-  sectionTitle: 'Nos fonctionnalités',
-  cards: [
-    { id: 1, image: '/image/category.jpeg', title: 'Tri intelligent des emails', description: 'Iris classe automatiquement vos emails en trois catégories pour garder une boîte de réception claire.' },
-    { id: 2, image: '/image/resume.jpeg', title: 'Résumés des longs mails', description: 'Iris résume vos emails pour comprendre l’essentiel en quelques secondes.' },
-    { id: 3, image: '/image/reponse.jpeg', title: 'Réponses et actions', description: 'Iris propose des réponses prêtes à envoyer et suggère les prochaines actions comme planifier une réunion.' },
-  ],
-},
+      sectionTitle: 'Nos fonctionnalités',
+      cards: [
+        { id: 1, image: '/image/category.jpeg', title: 'Tri intelligent des emails', description: 'Iris classe automatiquement vos emails en trois catégories pour garder une boîte de réception claire.' },
+        { id: 2, image: '/image/resume.jpeg', title: 'Résumés des longs mails', description: 'Iris résume vos emails pour comprendre l\'essentiel en quelques secondes.' },
+        { id: 3, image: '/image/reponse.jpeg', title: 'Réponses et actions', description: 'Iris propose des réponses prêtes à envoyer et suggère les prochaines actions comme planifier une réunion.' },
+      ],
+    },
   },
   en: {
     nav: {
@@ -283,12 +283,12 @@ export const translations = {
       enterprisePlans: [
         {
           plan: '100 Employees',
-          price: '7.90',
+          price: '9.99',
           originalPrice: null,
           isPopular: false,
           isEnterprise: true,
           features: [
-            '9,480 € / yr total',
+            '11,988 € / yr total',
             '+ 5 free employees',
             'Admin console',
             'Local data security',
@@ -297,12 +297,12 @@ export const translations = {
         },
         {
           plan: '250 Employees',
-          price: '6.90',
+          price: '7.99',
           originalPrice: null,
           isPopular: true,
           isEnterprise: true,
           features: [
-            '20,700 € / yr total',
+            '23,970 € / yr total',
             '+ 7% free employees',
             'Everything in 100 plan',
             'Advanced team analytics',
@@ -311,12 +311,12 @@ export const translations = {
         },
         {
           plan: '1000 Employees',
-          price: '4.90',
+          price: '4.99',
           originalPrice: null,
           isPopular: false,
           isEnterprise: true,
           features: [
-            '58,800 € / yr total',
+            '59,880 € / yr total',
             '+ 10% free employees',
             'Best rate per member',
             'Custom training',
@@ -325,7 +325,7 @@ export const translations = {
         },
       ],
     },
-    about: { title: 'About Us', theTeam: 'A team dedicated to making your daily life simpler and more organized', getInTouch: 'Questions? Write to us via “Contact Us” or find us on LinkedIn', contactUs: 'Contact us', linkedIn: 'LinkedIn' },
+    about: { title: 'About Us', theTeam: 'A team dedicated to making your daily life simpler and more organized', getInTouch: 'Questions? Write to us via "Contact Us" or find us on LinkedIn', contactUs: 'Contact Us', linkedIn: 'LinkedIn' },
     faq: {
       title: 'Still have ',
       questions: 'questions?',
@@ -348,14 +348,14 @@ export const translations = {
       cookiePolicy: 'Cookie Policy',
       copyright: '© 2025-2026 Iris. All rights reserved.',
     },
-    modal: { title: 'Help Us Improve Iris', subtitle: 'Share your thoughts and help shape the future of productivity', skip: 'Skip for now', once: 'This will only appear once', loading: 'Loading…', iframeTitle: 'Iris Questionnaire' },
+    modal: { title: 'Help Us Improve Iris', subtitle: 'Share your thoughts and help shape the future of productivity', skip: 'Skip for now', once: 'This will only appear once', loading: 'Loading...', iframeTitle: 'Iris Improvement Questionnaire' },
     pricingCard: { mostPopular: 'Most Popular', perMonth: '/mo', save: 'Save', contactSales: 'Contact Sales', getStarted: 'Get Started', whatsIncluded: "What's included:", guarantee: '90-day money-back guarantee • Cancel anytime' },
     calendarCarousel: {
       sectionTitle: 'Our Features',
       cards: [
-        { id: 1, image: '/image/category.jpeg', title: 'Smart Email Sorting', description: 'Iris automatically sorts your emails into three categories' },
-        { id: 2, image: '/image/resume.jpeg', title: 'Summaries of long emails', description: 'Iris summarizes your emails to grasp the essentials' },
-        { id: 3, image: '/image/reponse.jpeg', title: 'Replies and Actions', description: 'Iris offers ready-to-send replies' },
+        { id: 1, image: '/image/category.jpeg', title: 'Smart Email Sorting', description: 'Iris automatically sorts your emails into three categories to keep your inbox clear.' },
+        { id: 2, image: '/image/resume.jpeg', title: 'Summaries of long emails', description: 'Iris summarizes your emails to grasp the essentials in seconds.' },
+        { id: 3, image: '/image/reponse.jpeg', title: 'Replies and Actions', description: 'Iris offers ready-to-send replies and suggests next actions like scheduling a meeting.' },
       ]
     },
   },
