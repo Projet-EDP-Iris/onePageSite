@@ -205,17 +205,19 @@ function App() {
         </div>
       </section>
 
-<section className="video-tutorial-section">
-  <h2>{t.video.title}</h2>
-  <p>{t.video.description}</p>
-  <div className="video-container">
-    <iframe
-      src="https://www.youtube.com/embed/dVCHcU--9aI"
-      title={t.video.iframeTitle}
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    ></iframe>
-  </div>
+<section id="demo" style={{padding: '80px 20px', textAlign: 'center', background: '#0f0f0f'}}>
+  <h2 style={{color: 'white', fontSize: '32px', marginBottom: '12px'}}>
+    Reprenez le contrôle de votre temps. Iris gère vos emails à votre place.
+  </h2>
+  <p style={{color: 'rgba(255,255,255,0.5)', marginBottom: '40px', fontSize: '16px'}}>
+    Voyez Iris en action
+  </p>
+  <iframe
+    src="/video/iris_demo_floutee.html"
+    width="100%"
+    style={{maxWidth: '900px', height: '580px', border: 'none', borderRadius: '16px', boxShadow: '0 32px 80px rgba(0,0,0,0.5)'}}
+    title="Démo Iris"
+  />
 </section>
 
  <section class="trusted-section">

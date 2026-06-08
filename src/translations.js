@@ -11,7 +11,7 @@ export const translations = {
       headline: "Organiser votre quotidien en un clic",
       headlineBr: "Organiser votre quotidien en un clic",
       headlineBr2: "",
-      subtext: "Iris gère vos emails en action tout en respectant votre vie privée",
+      subtext: "Reprenez le contrôle de votre temps. Iris gère vos emails à votre place.",
       cta: 'TÉLÉCHARGER',
       subtextCta: 'Commencez gratuitement ou',
       bookDemo: 'réservez une démo',
