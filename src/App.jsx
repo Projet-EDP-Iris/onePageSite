@@ -1,5 +1,6 @@
 import './App.css'
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import CalendarCarousel from './components/CalendarCarousel';
 import PricingCard from './components/PricingCard';
 import { translations } from './translations';
@@ -389,8 +390,8 @@ function App() {
                   </svg>
                   {t.footer.linkedIn}
                 </a>
-                <a href="#privacy" className="footer-link">{t.footer.privacyPolicy}</a>
-                <a href="#cookies" className="footer-link">{t.footer.cookiePolicy}</a>
+                <Link to="/privacy-policy" className="footer-link">{t.footer.privacyPolicy}</Link>
+                <Link to="/cookie-policy" className="footer-link">{t.footer.cookiePolicy}</Link>
               </div>
             </div>
             <div className="footer-bottom">
