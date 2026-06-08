@@ -93,6 +93,18 @@ function App() {
     }
   }, []);
 
+  useEffect(() => {
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      const el = document.getElementById(id);
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }, 200);
+      }
+    }
+  }, []);
+
   const closeQuestionnaire = () => {
     setShowQuestionnaire(false);
     localStorage.setItem('hasSeenQuestionnaire', 'true');
@@ -373,7 +385,7 @@ function App() {
         </div>
 
 
-        <footer className="footer">
+        <footer className="footer" id="footer">
             <div className="footer-content">
               <div className="footer-section">
                 <p className="footer-text">
