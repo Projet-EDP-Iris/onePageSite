@@ -27,7 +27,7 @@ const CalendarCarousel = ({ locale = 'fr' }) => {
           <div key={card.id} className="calendar-card">
             <div className="calendar-card-image-placeholder">
               {card.image ? (
-                <img src={card.image} alt={card.title} className="calendar-card-image" loading="eager" />
+                <img src={card.image} alt={card.title} className="calendar-card-image" loading="lazy" />
               ) : (
                 <div className="calendar-card-image-fallback" aria-hidden="true" />
               )}
