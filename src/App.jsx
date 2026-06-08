@@ -227,9 +227,6 @@ function App() {
                 <div className="carousel-item">
                     <img src='/image/calendar - Edited 1.png' alt="Calendar" loading="lazy" />
                 </div>
-                <div className="carousel-item">
-                    <img src='/image/Slack (icon — Colour).png' alt="Slack" loading="lazy" />
-                </div>
             </div>
         </div>
 

@@ -84,7 +84,7 @@ export const translations = {
       enterprisePlans: [
         {
           plan: '100 Salariés',
-          price: '7,90',
+          price: '9,99',
           originalPrice: null,
           isPopular: false,
           isEnterprise: true,
@@ -98,12 +98,12 @@ export const translations = {
         },
         {
           plan: '250 Salariés',
-          price: '6,90',
+          price: '7,99',
           originalPrice: null,
           isPopular: true,
           isEnterprise: true,
           features: [
-            '20 700 € / an total',
+            '23 970 € / an total',
             '+ 7% salariés offerts',
             'Tout l\'offre 100 salariés',
             'Analytique avancée équipe',
@@ -112,12 +112,12 @@ export const translations = {
         },
         {
           plan: '1000 Salariés',
-          price: '4,90',
+          price: '4,99',
           originalPrice: null,
           isPopular: false,
           isEnterprise: true,
           features: [
-            '58 800 € / an total',
+            '59 880 € / an total',
             '+ 10% salariés offerts',
             'Meilleur tarif par membre',
             'Formation personnalisée',
