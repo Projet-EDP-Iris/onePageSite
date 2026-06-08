@@ -65,7 +65,7 @@ function CookiePolicy() {
         },
         {
           title: "4. Managing your preferences",
-          text: "You can configure your browser at any time to block cookies or clear local storage. Please note that clearing this data will reset your default language preference and display the questionnaire again on your next visit."
+          text: "You can configure your browser at any time to block cookies or clear local storage. Please note that clearing this data will reset your default language preference and display the questionnaire on your next visit."
         }
       ],
       back: "Back to Home",
