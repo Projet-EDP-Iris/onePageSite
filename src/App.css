@@ -240,6 +240,27 @@
   box-shadow: 0 6px 22px rgba(255, 61, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
 }
 
+.nav-bug-btn {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+  border: 1px solid rgba(255, 138, 43, 0.4);
+  background: transparent;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.nav-bug-btn:hover {
+  color: #ff8a2b;
+  background: rgba(255, 138, 43, 0.1);
+  transform: translateY(-2px);
+  border-color: rgba(255, 138, 43, 0.7);
+}
+
 .hero{
   min-height: 100vh;
   display: flex;
@@ -2309,6 +2330,133 @@
   height: 600px;
   border: none;
   display: block;
+}
+
+/* Bug Report Form */
+.bug-report-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px 0;
+}
+
+.bug-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bug-form-field label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.bug-form-field input[type="text"],
+.bug-form-field input[type="email"],
+.bug-form-field textarea,
+.bug-form-field select {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  padding: 10px 14px;
+  transition: border-color 0.2s;
+  resize: vertical;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.bug-form-field input[type="text"]:focus,
+.bug-form-field input[type="email"]:focus,
+.bug-form-field textarea:focus,
+.bug-form-field select:focus {
+  outline: none;
+  border-color: rgba(255, 138, 43, 0.6);
+  background: rgba(255, 138, 43, 0.05);
+}
+
+.bug-form-field select option {
+  background: #2a2a2a;
+  color: #fff;
+}
+
+.bug-form-field input[type="file"] {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  padding: 6px 0;
+}
+
+.bug-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.bug-form-error {
+  color: #ff6b6b;
+  font-size: 13px;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+}
+
+.bug-form-submit {
+  background: linear-gradient(135deg, #ff8a2b, #ff3d00);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 12px 24px;
+  text-transform: uppercase;
+  transition: opacity 0.2s, transform 0.1s;
+  align-self: flex-end;
+}
+
+.bug-form-submit:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.bug-form-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.bug-form-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 40px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.bug-form-success svg {
+  color: #4ade80;
+  stroke: #4ade80;
+}
+
+.bug-form-success h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.bug-form-success p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 15px;
+  margin: 0;
 }
 
 .modal-footer {

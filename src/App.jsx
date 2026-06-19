@@ -19,6 +19,9 @@ function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [showQuestionnaire, setShowQuestionnaire] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
+  const [bugForm, setBugForm] = useState({ email: '', title: '', description: '', steps: '', severity: 'medium', screenshotFile: null });
+  const [bugStatus, setBugStatus] = useState(null);
+  const [bugLoading, setBugLoading] = useState(false);
   const [pricingMode, setPricingMode] = useState('individual');
   const [os, setOs] = useState('mac');
   const navigate = useNavigate();
@@ -121,6 +124,34 @@ function App() {
   const closeQuestionnaire = () => {
     setShowQuestionnaire(false);
     localStorage.setItem('hasSeenQuestionnaire', 'true');
+    setBugStatus(null);
+    setBugForm({ email: '', title: '', description: '', steps: '', severity: 'medium', screenshotFile: null });
+  };
+
+  const handleBugSubmit = async (e) => {
+    e.preventDefault();
+    setBugLoading(true);
+    setBugStatus(null);
+    try {
+      const res = await fetch('https://irisbackend-ar0m.onrender.com/api/v1/bug-report', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: bugForm.email,
+          title: bugForm.title,
+          description: bugForm.description,
+          steps: bugForm.steps,
+          severity: bugForm.severity,
+          screenshot_filename: bugForm.screenshotFile?.name ?? null,
+        }),
+      });
+      if (!res.ok) throw new Error('server error');
+      setBugStatus('success');
+    } catch {
+      setBugStatus('error');
+    } finally {
+      setBugLoading(false);
+    }
   };
 
   const scrollToTop = () => {
@@ -160,10 +191,11 @@ function App() {
 	  </button>
 	  <nav className={`navi ${navOpen ? 'navi-open' : ''}`}>
 	    <a href={os === 'mac' ? MAC_URL : WIN_URL} className="download-btn" onClick={() => setNavOpen(false)}>{t.nav.download}</a>
-	    <a href="#download" onClick={() => setNavOpen(false)}>{t.nav.iris}</a>
-	    <a href="#pricing" onClick={() => setNavOpen(false)}>{t.nav.pricing}</a>
-	    <a href="#about" onClick={() => setNavOpen(false)}>{t.nav.aboutUs}</a>
-	    <a href="#faq" onClick={() => setNavOpen(false)}>{t.nav.faq}</a>
+	    <a href="#download" onClick={(e) => { e.preventDefault(); document.getElementById('download')?.scrollIntoView({ behavior: 'smooth' }); setNavOpen(false); }}>{t.nav.iris}</a>
+	    <a href="#pricing" onClick={(e) => { e.preventDefault(); document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' }); setNavOpen(false); }}>{t.nav.pricing}</a>
+	    <a href="#about" onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); setNavOpen(false); }}>{t.nav.aboutUs}</a>
+	    <a href="#faq" onClick={(e) => { e.preventDefault(); document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' }); setNavOpen(false); }}>{t.nav.faq}</a>
+	    <button className="nav-bug-btn" onClick={() => { setShowQuestionnaire(true); setNavOpen(false); }}>{t.nav.reportBug}</button>
 	  </nav>
 	</div>
 	<div className="lang-toggle" role="group" aria-label="Switch language">
@@ -453,13 +485,85 @@ function App() {
            </div>
 
            <div className="modal-body">
-             <iframe
-               src="https://docs.google.com/forms/d/e/1FAIpQLScmFU5CmdudW_kN-XKA4KmIL1uurCwUziWb2bA1yfUOTTXWsw/viewform?embedded=true"
-               className="questionnaire-iframe"
-               title={t.modal.iframeTitle}
-             >
-               {t.modal.loading}
-             </iframe>
+             {bugStatus === 'success' ? (
+               <div className="bug-form-success">
+                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                   <circle cx="12" cy="12" r="10"/>
+                   <polyline points="9 12 11 14 15 10"/>
+                 </svg>
+                 <h3>{t.modal.successTitle}</h3>
+                 <p>{t.modal.successMsg}</p>
+               </div>
+             ) : (
+               <form className="bug-report-form" onSubmit={handleBugSubmit} noValidate>
+                 <div className="bug-form-field">
+                   <label>{t.modal.email} *</label>
+                   <input
+                     type="email"
+                     required
+                     value={bugForm.email}
+                     onChange={(e) => setBugForm(f => ({ ...f, email: e.target.value }))}
+                   />
+                 </div>
+                 <div className="bug-form-field">
+                   <label>{t.modal.bugTitle} *</label>
+                   <input
+                     type="text"
+                     required
+                     value={bugForm.title}
+                     onChange={(e) => setBugForm(f => ({ ...f, title: e.target.value }))}
+                   />
+                 </div>
+                 <div className="bug-form-field">
+                   <label>{t.modal.description} *</label>
+                   <textarea
+                     required
+                     rows={3}
+                     placeholder={t.modal.descriptionPlaceholder}
+                     value={bugForm.description}
+                     onChange={(e) => setBugForm(f => ({ ...f, description: e.target.value }))}
+                   />
+                 </div>
+                 <div className="bug-form-field">
+                   <label>{t.modal.steps} *</label>
+                   <textarea
+                     required
+                     rows={3}
+                     placeholder={t.modal.stepsPlaceholder}
+                     value={bugForm.steps}
+                     onChange={(e) => setBugForm(f => ({ ...f, steps: e.target.value }))}
+                   />
+                 </div>
+                 <div className="bug-form-row">
+                   <div className="bug-form-field">
+                     <label>{t.modal.severity}</label>
+                     <select
+                       value={bugForm.severity}
+                       onChange={(e) => setBugForm(f => ({ ...f, severity: e.target.value }))}
+                     >
+                       <option value="low">{t.modal.severityOptions.low}</option>
+                       <option value="medium">{t.modal.severityOptions.medium}</option>
+                       <option value="high">{t.modal.severityOptions.high}</option>
+                       <option value="critical">{t.modal.severityOptions.critical}</option>
+                     </select>
+                   </div>
+                   <div className="bug-form-field">
+                     <label>{t.modal.screenshot}</label>
+                     <input
+                       type="file"
+                       accept="image/*"
+                       onChange={(e) => setBugForm(f => ({ ...f, screenshotFile: e.target.files?.[0] ?? null }))}
+                     />
+                   </div>
+                 </div>
+                 {bugStatus === 'error' && (
+                   <p className="bug-form-error">{t.modal.errorMsg}</p>
+                 )}
+                 <button type="submit" className="bug-form-submit" disabled={bugLoading}>
+                   {bugLoading ? t.modal.sending : t.modal.submit}
+                 </button>
+               </form>
+             )}
            </div>
 
            <div className="modal-footer">
