@@ -201,6 +201,11 @@ function App() {
                 {os === 'mac' ? 'Version Windows' : 'Version macOS'}
               </a>
             </p>
+            {os === 'mac' && (
+              <p className="hero-subtext" style={{ fontSize: '13px', opacity: 0.6, maxWidth: '480px', margin: '8px auto 0' }}>
+                {t.hero.macGatekeeperNote}
+              </p>
+            )}
           </div>
         </div>
       </section>
@@ -419,6 +424,7 @@ function App() {
                  </a>
                  <Link to="/privacy-policy" className="footer-link">{t.footer.privacyPolicy}</Link>
                  <Link to="/cookie-policy" className="footer-link">{t.footer.cookiePolicy}</Link>
+                 <Link to="/terms-of-service" className="footer-link">{t.footer.termsOfService}</Link>
                </div>
              </div>
              <div className="footer-bottom">
