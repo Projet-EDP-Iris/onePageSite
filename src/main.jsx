@@ -6,6 +6,7 @@ import App from './App.jsx'
 import Admin from './pages/Admin.jsx'
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx'
 import CookiePolicy from './pages/CookiePolicy.jsx'
+import TermsOfService from './pages/TermsOfService.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -15,6 +16,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/admin" element={<Admin />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/cookie-policy" element={<CookiePolicy />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

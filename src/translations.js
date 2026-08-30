@@ -16,6 +16,7 @@ export const translations = {
       cta: 'TÉLÉCHARGER',
       subtextCta: 'Commencez gratuitement ou',
       bookDemo: 'réservez une démo',
+      macGatekeeperNote: 'Sur Mac : au premier lancement, macOS affichera un avertissement. Allez dans Réglages Système → Confidentialité et sécurité → cliquez sur "Ouvrir quand même" (ou faites clic droit sur Iris → Ouvrir).',
     },
     video: {
       title: 'Comment fonctionne Iris ?',
@@ -145,7 +146,7 @@ export const translations = {
         },
         {
           question: 'Comment fonctionne Iris ?',
-          answer: "Iris se connecte à tes mails et calendriers pour transformer automatiquement tes messages en actions, tout en gardant tes données privées et sécurisées sur ton ordinateur. Elle détecte les échéances, crée des tâches à suivre, suggère des réponses adaptées, propose des créneaux disponibles et met en avant les messages prioritaires pour faciliter le suivi. Il ne te reste plus qu'à valider ces actions en un seul clic. Tes informations restent entièrement sous ton contrôle et ne sont jamais envoyées sur des serveurs externes",
+          answer: "Iris se connecte à tes mails et calendriers pour transformer automatiquement tes messages en actions. Elle détecte les échéances, crée des tâches à suivre, suggère des réponses adaptées, propose des créneaux disponibles et met en avant les messages prioritaires pour faciliter le suivi. Il ne te reste plus qu'à valider ces actions en un seul clic. Tes identifiants de connexion et le contenu nécessaire à l'analyse (via notre backend sécurisé et notre partenaire IA) sont chiffrés et protégés — voir notre Politique de Confidentialité pour le détail complet.",
         },
         {
           question: 'À quelles applications Iris s\'intègre-t-elle ?',
@@ -165,7 +166,7 @@ export const translations = {
         },
         {
           question: 'Iris respecte-t-elle la confidentialité et le RGPD ?',
-          answer: "Oui, à 100%. L'intelligence artificielle d'Iris tourne localement, c'est-à-dire directement sur ton ordinateur. Tes e-mails et tes données ne sont jamais envoyés sur des serveurs externes pour être analysés. Ce qui se passe dans ta boîte mail reste dans ta boîte mail. De plus, Iris ne fait rien sans ton accord, elle te propose des actions, mais c'est toujours toi qui as le dernier mot.",
+          answer: "Iris est conçue dans le respect du RGPD : tes identifiants de connexion sont chiffrés, ton mot de passe n'est jamais stocké en clair, et tu gardes à tout moment un contrôle total — accès, rectification et suppression de tes données depuis les paramètres de l'application. Le contenu nécessaire à l'analyse (catégorisation, résumés, suggestions) transite par notre backend sécurisé et notre partenaire d'intelligence artificielle pour être traité. Consulte notre Politique de Confidentialité pour le détail complet de ce qui est traité et où. De plus, Iris ne fait rien sans ton accord : elle te propose des actions, mais c'est toujours toi qui as le dernier mot.",
         },
         {
           question: 'En quoi Iris est-elle différente des autres outils ?',
@@ -178,6 +179,7 @@ export const translations = {
       linkedIn: 'LinkedIn',
       privacyPolicy: 'Politique de confidentialité',
       cookiePolicy: 'Politique des cookies',
+      termsOfService: "Conditions d'utilisation",
       copyright: '© 2025-2026 Iris. Tous droits réservés.',
     },
     modal: {
@@ -243,6 +245,7 @@ export const translations = {
       cta: 'DOWNLOAD',
       subtextCta: 'Start monitoring for free or ',
       bookDemo: 'book a demo',
+      macGatekeeperNote: 'On Mac: on first launch, macOS will show a warning. Go to System Settings → Privacy & Security → click "Open Anyway" (or right-click Iris → Open).',
     },
     video: {
       title: 'How Iris Works ?',
@@ -354,12 +357,12 @@ export const translations = {
       subtitle: 'We answer your most frequently asked questions about Iris.',
       items: [
         { question: 'What is Iris?', answer: "Where a simple mailbox stops, Iris takes over. This intelligent companion transforms your emails into actionable tasks. It organizes your exchanges by priority and integrates with the apps you already use to manage your calendar, tasks, or responses in a single click." },
-        { question: 'How does Iris work?', answer: "Iris connects to your emails and calendars to automatically turn messages into actions while keeping your data private and secure on your computer. It detects deadlines, creates follow-ups, suggests responses, and highlights priority messages. Actions are only proposed—you have the final control." },
+        { question: 'How does Iris work?', answer: "Iris connects to your emails and calendars to automatically turn messages into actions. It detects deadlines, creates follow-ups, suggests responses, and highlights priority messages. Your credentials and the content needed for analysis (via our secure backend and AI partner) are encrypted and protected — see our Privacy Policy for full details. Actions are only proposed — you have the final control." },
         { question: 'What apps does Iris integrate with?', answer: "Iris integrates with Gmail, Outlook, Google Calendar, and Apple Calendar." },
         { question: 'Which platforms is Iris available on?', answer: "Iris is available on macOS and Windows." },
         { question: 'Who is Iris for?', answer: "Anyone who receives many emails and wants to stay organized without the mental load." },
         { question: 'Is Iris paid?', answer: "Iris offers flexible individual subscriptions based on your needs: 3 months, 6 months, or 12 months. Each plan gives you full access to local AI to automate your emails and calendar. The longer you commit, the better the monthly rate becomes." },
-        { question: 'Does Iris respect privacy and GDPR?', answer: "Yes, 100%. Iris AI runs locally on your computer. Your data is never sent to external servers." },
+        { question: 'Does Iris respect privacy and GDPR?', answer: "Iris is built with GDPR in mind: your credentials are encrypted, your password is never stored in plain text, and you keep full control at all times — access, rectification, and deletion of your data from the app's settings. Content needed for analysis (categorization, summaries, suggestions) goes through our secure backend and AI partner for processing. See our Privacy Policy for the full breakdown of what is processed and where. Iris also never acts without your approval — it proposes actions, you always have the final say." },
         { question: 'How is Iris different from other productivity tools?', answer: "Iris understands the intent behind your emails and prepared actions for you to approve in one click." },
       ],
     },
@@ -368,6 +371,7 @@ export const translations = {
       linkedIn: 'LinkedIn',
       privacyPolicy: 'Privacy Policy',
       cookiePolicy: 'Cookie Policy',
+      termsOfService: 'Terms of Service',
       copyright: '© 2025-2026 Iris. All rights reserved.',
     },
     modal: {
