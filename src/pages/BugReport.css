@@ -1,0 +1,131 @@
+.br-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.br-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.br-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.br-field label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.br-field input[type="text"],
+.br-field input[type="email"],
+.br-field textarea,
+.br-field select {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #f3f4f6;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  padding: 12px 16px;
+  transition: border-color 0.2s, background 0.2s;
+  resize: vertical;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.br-field input[type="text"]:focus,
+.br-field input[type="email"]:focus,
+.br-field textarea:focus,
+.br-field select:focus {
+  outline: none;
+  border-color: rgba(248, 154, 60, 0.6);
+  background: rgba(248, 154, 60, 0.04);
+}
+
+.br-field select option {
+  background: #1a1a1a;
+  color: #f3f4f6;
+}
+
+.br-field input[type="file"] {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+  padding: 8px 0;
+  border: none;
+  background: none;
+}
+
+.br-error {
+  color: #f87171;
+  font-size: 0.9rem;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.br-submit {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #f89a3c 0%, #ff3d00 100%);
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 14px 32px;
+  transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(255, 61, 0, 0.3);
+}
+
+.br-submit:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(255, 61, 0, 0.45);
+}
+
+.br-submit:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.br-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.br-success h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.br-success p {
+  color: #9ca3af;
+  font-size: 1rem;
+  margin: 0 0 8px;
+}
+
+@media (max-width: 640px) {
+  .br-row {
+    grid-template-columns: 1fr;
+  }
+
+  .br-submit {
+    align-self: stretch;
+    text-align: center;
+  }
+}
