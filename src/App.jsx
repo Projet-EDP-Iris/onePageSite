@@ -249,11 +249,15 @@ function App() {
   <p style={{color: 'rgba(255,255,255,0.5)', marginBottom: '40px', fontSize: '16px'}}>
     Voyez Iris en action
   </p>
-  <iframe
-    src="/video/iris_demo_floutee.html"
+  <video
+    src="/video/Iris_Publicité.mp4"
     width="100%"
-    style={{maxWidth: '900px', height: '580px', border: 'none', borderRadius: '16px', boxShadow: '0 32px 80px rgba(0,0,0,0.5)'}}
-    title="Démo Iris"
+    controls
+    autoPlay
+    muted
+    loop
+    playsInline
+    style={{maxWidth: '900px', height: 'auto', borderRadius: '16px', boxShadow: '0 32px 80px rgba(0,0,0,0.5)', display: 'block', margin: '0 auto'}}
   />
 </section>
 

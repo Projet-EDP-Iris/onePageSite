@@ -222,9 +222,9 @@ export const translations = {
     calendarCarousel: {
       sectionTitle: 'Nos fonctionnalités',
       cards: [
-        { id: 1, image: '/image/category.jpeg', title: 'Tri intelligent des emails', description: 'Iris classe automatiquement vos emails en trois catégories pour garder une boîte de réception claire.' },
-        { id: 2, image: '/image/resume.jpeg', title: 'Résumés des longs mails', description: 'Iris résume vos emails pour comprendre l\'essentiel en quelques secondes.' },
-        { id: 3, image: '/image/reponse.jpeg', title: 'Réponses et actions', description: 'Iris propose des réponses prêtes à envoyer et suggère les prochaines actions comme planifier une réunion.' },
+        { id: 1, image: '/image/org_mail.png', title: 'Organise vos mails', description: 'Iris classe automatiquement vos emails en trois catégories pour garder une boîte de réception claire.' },
+        { id: 2, image: '/image/resume.png', title: 'Résume vos mails', description: 'Iris résume vos emails pour comprendre l\'essentiel en quelques secondes.' },
+        { id: 3, image: '/image/ajout_rdv.png', title: 'Planifie vos rdv en 1 clic', description: 'Iris propose des réponses prêtes à envoyer et suggère les prochaines actions comme planifier une réunion.' },
       ],
     },
   },
